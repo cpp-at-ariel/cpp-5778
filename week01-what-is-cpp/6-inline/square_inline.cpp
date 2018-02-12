@@ -8,6 +8,8 @@ inline int square(int x) {
 }
 
 int main() {
-    int y = square(1234);
+    int* sum = new int;
+    long x = long(sum);
+    int y = square(x);
     return y;
 }

@@ -7,11 +7,9 @@ int square(int x) {
     return x*x;
 }
 
-// double square(double x) {
-//     return x*x;
-// }
-
 int main() {
-    int y1 = square(1234);
-    return y1;
+    int* sum = new int;
+    long x = long(sum);
+    int y = square(x);
+    return y;
 }
