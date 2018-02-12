@@ -1,0 +1,12 @@
+#include "units/Line.hpp"
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    Line l1;
+    cout << l1.to_string() << endl;
+    l1.set(1,2,3,4);
+    cout << l1.to_string() << endl;
+    return 0;
+}
