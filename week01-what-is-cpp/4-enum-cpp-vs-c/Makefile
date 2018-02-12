@@ -1,13 +1,10 @@
 CXX=clang++-5.0
-RM=rm -f
-CPPFLAGS=-std=c++17 
-LDFLAGS=
-LDLIBS=
+CXXFLAGS=-std=c++17 
 
 ifndef MAIN
   MAIN=./main.cpp
 endif
 
 all: 
-	clang++-5.0 -std=c++17 $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAIN)
 	./a.out
