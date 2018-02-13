@@ -1,5 +1,8 @@
 /**
- * Demonstrates destructors
+ * Demonstrates destructors and memory leaks.
+ * 
+ * To run the demo, open "top" in another window,
+ * then run this program and watch the changes in the free memory.
  */
 
 #include <iostream>
