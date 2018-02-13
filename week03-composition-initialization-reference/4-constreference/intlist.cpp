@@ -14,9 +14,15 @@ class IntList {
         uint numInts;
 
     public:
-        IntList(uint numInts) {
-            theInts = new int[numInts];
-            this->numInts = numInts;
+        IntList(uint newNumInts): 
+            numInts(newNumInts), 
+            theInts(new int[newNumInts]) 
+            {  }
+
+        /* Copy constructor */
+        IntList(const IntList& other): IntList(other.numInts) {
+             for (uint i=0; i<numInts; ++i)
+                 theInts[i] = other.theInts[i];
         }
 
         ~IntList() {
@@ -40,21 +46,28 @@ class IntList {
 };
 
 int main() {
+
+    cout << endl << "A. Test the non-const method: " << endl;
     IntList list(10);
     list.fill(1);
-
     cout << list.get(5) << endl;
-
-    const IntList clist(10);
-    //clist.fill(1);  // won't compile
-    cout << clist.get(5) << endl;
-
     list.get(5) = list.get(4) + list.get(6);
     cout << list.get(5) << endl;
 
-    //clist.get(5) = clist.get(4) + clist.get(6);  // won't compile
-    list.get(5) = clist.get(4) + clist.get(6); 
+    cout << endl << "B. Test the const method: " << endl;
+    const IntList& clist = list;
+    //clist.fill(1);  // won't compile
     cout << clist.get(5) << endl;
+    //clist.get(5) = clist.get(4) + clist.get(6);  // won't compile
+    cout << clist.get(5) + clist.get(6) << endl;
+
+    cout << endl << "C. Test the copy constructor:" << endl;
+    IntList list2(list);
+    cout << list2.get(5) << endl;
+
+    list2.get(6)=3;
+    cout << list2.get(6) << endl;
+    cout << list.get(6) << endl;
 
     return 0;
 }
