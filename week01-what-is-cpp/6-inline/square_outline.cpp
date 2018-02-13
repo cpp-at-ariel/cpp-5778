@@ -8,8 +8,5 @@ int square(int x) {
 }
 
 int main() {
-    int* sum = new int;
-    long x = long(sum);
-    int y = square(x);
-    return y;
+    return square(1234);
 }

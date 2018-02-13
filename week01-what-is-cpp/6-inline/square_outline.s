@@ -15,20 +15,11 @@ _Z6squarei:                             # @_Z6squarei
 	.p2align	4, 0x90
 	.type	main,@function
 main:                                   # @main
-	.cfi_startproc
 # BB#0:
-	pushq	%rax
-.Lcfi0:
-	.cfi_def_cfa_offset 16
-	movl	$4, %edi
-	callq	_Znwm
-	imull	%eax, %eax
-                                        # kill: %EAX<def> %EAX<kill> %RAX<kill>
-	popq	%rcx
+	movl	$1522756, %eax          # imm = 0x173C44
 	retq
 .Lfunc_end1:
 	.size	main, .Lfunc_end1-main
-	.cfi_endproc
                                         # -- End function
 
 	.ident	"clang version 5.0.1-svn319952-1~exp1 (branches/release_50)"
