@@ -6,23 +6,24 @@
  */
 
 #include "Complex.hpp"
+using namespace std;
 
-static std::istream& getAndCheckNextCharIs(std::istream& is, char ch) {
+static istream& getAndCheckNextCharIs(istream& input, char ch) {
     char tmp;
-    is >> tmp;
-    if (!is) return is;
+    input >> tmp;
+    if (!input) return input;
     // failbit is for format error
-    if (tmp!=ch) is.setstate(std::ios::failbit);
-    return is;
+    if (tmp!=ch) input.setstate(ios::failbit);
+    return input;
 }
 
-std::istream& operator>> (std::istream& is, Complex& c) {
+istream& operator>> (istream& input, Complex& c) {
 
     //---------------------------------------------
     // Does not check format
     //---------------------------------------------
     // char ch
-    // return (is >> _re >> ch >> _im >> ch >> ch;
+    // return (input >> _re >> ch >> _im >> ch >> ch;
     //---------------------------------------------
 
     //---------------------------------------------
@@ -30,21 +31,20 @@ std::istream& operator>> (std::istream& is, Complex& c) {
     //---------------------------------------------
 
     // remember place for rewinding
-    std::ios::pos_type startPos= is.tellg();
+    ios::pos_type startPosition = input.tellg();
 
-    if ( (!(is >> c._re))||
-         (!getAndCheckNextCharIs(is,'+'))||
-         (!(is >> c._im))||
-         (!(getAndCheckNextCharIs(is,'i'))) ) {
+    if ( (!(input >> c._re))||
+         (!getAndCheckNextCharIs(input,'+'))||
+         (!(input >> c._im))||
+         (!(getAndCheckNextCharIs(input,'i'))) ) {
 
         // rewind on error
-        std::ios::iostate errState= is.rdstate(); // remember error state
-        is.clear(); // clear error so seekg will work
-        is.seekg(startPos); // rewind
-        is.clear(errState); // set back the error flag
-
+        auto errorState = input.rdstate(); // remember error state
+        input.clear(); // clear error so seekg will work
+        input.seekg(startPosition); // rewind
+        input.clear(errorState); // set back the error flag
     }
 
-    return is;
+    return input;
     //---------------------------------------------
 }

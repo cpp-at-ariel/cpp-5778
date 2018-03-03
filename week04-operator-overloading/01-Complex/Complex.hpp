@@ -77,15 +77,17 @@ public:
     }
     //----------------------------------
 
-
+    bool operator!() const {
+        return _re==0 && _im==0;
+    }
 
 
 
     //----------------------------------
     // friend global IO operators
     //----------------------------------
-    friend std::ostream& operator<< (std::ostream& os, const Complex& c);
-    friend std::istream& operator>> (std::istream& is, Complex& c);
+    friend ostream& operator<< (ostream& os, const Complex& c);
+    friend istream& operator>> (istream& is, Complex& c);
     //-------------------------------------
 
     //-------------------------------------
@@ -102,7 +104,7 @@ public:
 //----------------------------------------
 // friend global IO operators
 //----------------------------------------
-inline std::ostream& operator<< (std::ostream& os, const Complex& c) {
+inline ostream& operator<< (ostream& os, const Complex& c) {
     return (os << c._re << '+' << c._im << 'i');
 }
 //----------------------------------------

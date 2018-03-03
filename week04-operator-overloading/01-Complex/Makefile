@@ -3,12 +3,12 @@ MAINNAME= Complex
 #########################################################
 # compiler stuff 
 #########################################################
-CC= gcc
-CFLAGS= -Wall -Wvla -Werror -g
+CC=clang++-5.0
+CFLAGS=-std=c++17 -Wall -Wvla -Werror -g
 #COPTFLAGS= -O -DNDEBUG
 
-CXX= g++
-CXXFLAGS= $(CFLAGS) 
+CXX=clang++-5.0
+CXXFLAGS=$(CFLAGS) 
 
 CEXELINKFLAGS=
 CXXTESTLINKFLAGS= -lgtest -lgtest_main -pthread
@@ -18,8 +18,8 @@ CXXTESTLINKFLAGS= -lgtest -lgtest_main -pthread
 ##########################################################
 # sources files
 ##########################################################
-SRCSEXENOMAIN= $(MAINNAME).cpp
-SRCSEXEMAIN= $(MAINNAME)Main.cpp
+SRCSEXENOMAIN=  $(MAINNAME).cpp
+SRCSEXEMAIN=    $(MAINNAME)Demo.cpp
 
 # There is no SRCTESTMAIN as we are linking with gtest_main that has main
 SRCSTESTNOMAIN= $(MAINNAME)Test.cpp 
