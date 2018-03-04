@@ -16,6 +16,9 @@ int main(int argc, char **argv) {
     Complex c1(3.14, -1.0), c2(42.0), c3;
     cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;
 
+    cout << "c1+c2 = " << (c1+c2) << endl;
+    cout << "c1+c2 = " << operator+(c1,c2) << endl << endl;
+
     Complex c5 = c1 + c2;
     cout << "c5 = " << c5 << endl << endl;
 
@@ -37,6 +40,9 @@ int main(int argc, char **argv) {
     cout << "!c1 = " << (!c1) << endl;
     cout << "!c2 = " << (!c2) << endl;
     cout << "!c3 = " << (!c3) << endl;
+
+    //double d1 = c1;
+    //cout << "d1 = " << d1 << endl;
 
     cout << endl;
     
@@ -98,4 +104,5 @@ int main(int argc, char **argv) {
    
     cout << "You inserted: " << c1 << endl;
     return 0;
+
 }
