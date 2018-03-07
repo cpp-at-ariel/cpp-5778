@@ -59,7 +59,7 @@ int main() {
 
     Point3 p3;
     cout << p3.to_string() << endl; // undefined values
-    //p3.x = 10;  does not compile
+    //p3.x = 10; // does not compile
     p3.setX(10);
     p3.setY(20);
     cout << p3.to_string() << endl;

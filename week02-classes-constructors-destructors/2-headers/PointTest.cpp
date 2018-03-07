@@ -1,9 +1,11 @@
 #include "Point.hpp"
+#include "Rectangle.hpp"
 #include <iostream>
 using namespace std;
 
 
 int main() {
+    Rectangle r;
     Point p1;
     p1.setX(10);
     p1.setY(20);

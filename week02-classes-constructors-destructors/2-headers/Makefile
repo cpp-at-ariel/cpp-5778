@@ -14,4 +14,4 @@ PointTest.o: PointTest.cpp Point.hpp
 	$(CXX) $(CXXFLAGS) --compile PointTest.cpp -o PointTest.o
 
 clean:
-	$(RM) *.o a.out
+	rm *.o a.out

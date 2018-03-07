@@ -1,8 +1,8 @@
 #include "Point.hpp"
-#include "Point.hpp"  // does no harm if we use "pragma once"
 
 
 void Point::setX(int newX) { 
+	x = 0;
 	x = newX; 
 }
 

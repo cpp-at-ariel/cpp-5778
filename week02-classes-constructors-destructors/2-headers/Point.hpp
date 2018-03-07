@@ -7,6 +7,7 @@ class Point {
   private:    // Not required. All is private by default.
     int x;
     int y;
+    int z;
 
   public:
     // methods defined inline:

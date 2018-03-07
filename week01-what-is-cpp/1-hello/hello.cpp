@@ -7,8 +7,9 @@ using namespace std;
 
 int main() {
     string name;
-    cout << "What is your name?";
+    cout << (1 << 1) << endl;
+    cout << "What is your name? ";
     cin >> name;
-    cout << "Hello " << name << "!";
+    cout << endl << "Hello " << name << "!" << endl;
     return 0;
 }
