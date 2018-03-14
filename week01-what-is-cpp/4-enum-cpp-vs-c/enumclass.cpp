@@ -15,14 +15,16 @@ enum class Season {
 int WINTER = 60;
 
 int main() {
+    cout << WINTER << endl;
+    cout << int(Season::WINTER) << endl;
     //Season curr_season = WINTER;         // won't compile
     //int curr_season = SUMMER;            // won't compile
     //int curr_season = Season::SUMMER;    // won't compile
-    Season curr_season = Season::WINTER;
+    //Season curr_season = Season::WINTER;
 	// curr_season += 50;                // won't compile
     //int prev_season = Season::SUMMER; // won't compile
     //cout << curr_season << endl;      // won't compile
-    cout << int(curr_season) << endl;      
+    //cout << int(curr_season) << endl;      
     //cout << (curr_season==0) << endl; // won't compile
-    cout << (curr_season==Season::WINTER) << endl; 
+    //cout << (curr_season==Season::WINTER) << endl; 
 }
