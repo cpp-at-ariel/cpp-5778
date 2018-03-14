@@ -19,22 +19,25 @@ int& f12() {
 }
 
 int main() {
-    int num = 1; 
+    int num = 1;
+    int x = 2; 
 
-    int* pnum = &num;
-    cout << pnum << " " << *pnum << " " << num << endl;
-    (*pnum) = 2;
-    cout << pnum << " " << *pnum << " " << num << endl;
+    // int* pnum = &num;
+    // cout << pnum << " " << *pnum << " " << num << endl;
+    // (*pnum) = 2;
+    // cout << pnum << " " << *pnum << " " << num << endl;
 
     int& rnum = num;
     cout << &rnum << " " << rnum << " " << num << endl;
     rnum = 3;
     cout << &rnum << " " << rnum << " " << num << endl;
+    rnum = x;
+    cout << &rnum << " " << rnum << " " << num << endl;
 
-    int othernum = 4;
-    rnum = othernum;
-    rnum = 5;
-    cout << &rnum << " " << rnum << " " << num << " " << othernum << endl;
+    // int othernum = 4;
+    // rnum = othernum;
+    // rnum = 5;
+    // cout << &rnum << " " << rnum << " " << num << " " << othernum << endl;
 
     //int& rnum2 = 10; // error
     //int& rnum2 = f1(); // error

@@ -17,9 +17,9 @@ int main() {
 		cout << "Primitives - aggregate initialization:" << endl;
 		double a{1.1};
 		int b1 = 1.1;  // compiles in some compilers (bad)
-		// int b2 {1.1};  // won't compile (good)
-		double c[]{1.1,2.2};
-		double* d = new double[2]{10.1,20.2};
+		//int b2 {1.1};  // won't compile (good)
+		double c[]{1.1, 2.2};
+		double* d = new double[2]{10.1, 20.2};
 		int e{}; // initialized to 0
 
 		cout << a << endl;

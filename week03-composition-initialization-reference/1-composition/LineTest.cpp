@@ -4,7 +4,7 @@ using namespace std;
 
 
 int main() {
-    Point p {3,4};
+    Point p (3,4);
     cout << p.to_string() << endl;
 
     Line l1;
