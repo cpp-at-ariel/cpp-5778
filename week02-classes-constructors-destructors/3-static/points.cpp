@@ -49,8 +49,6 @@ int main() {
     cout << Point::MAXX << "," << Point::MAXY << endl;
     Point::showMax();
 
-    cout << (~0) << endl;
-
     p3.setX(2000);  // exception
 
     return 0;

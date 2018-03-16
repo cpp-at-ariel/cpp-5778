@@ -1,43 +1,16 @@
 /**
- * Demonstrates destructors and memory leaks.
+ * Demonstrates memory leaks.
  * 
  * To run the demo, open "top" in another window,
  * then run this program and watch the changes in the free memory.
+ * 
+ * @author Erel Segal-Halevi
+ * @since  2018-03
  */
+#include "units/IntList.hpp"
 
 #include <iostream>
 using namespace std;
-
-class IntList {
-    private:
-        int* theInts;
-        uint numInts;
-
-    public:
-        IntList(uint numInts) {
-            cout << "construct" << endl;
-            theInts = new int[numInts];
-            this->numInts = numInts;
-        }
-
-        ~IntList() {
-            cout << "destruct" << endl;
-            delete[] theInts;
-        }
-
-        void fill(int value) {
-            for (uint i=0; i<this->numInts; ++i)
-                theInts[i] = value;
-        }
-
-        int get(uint index) {
-            return theInts[index];
-        }  
-
-        void put(uint index, int value) {
-            theInts[index] = value;
-        }
-};
 
 #include <thread>
 #include <chrono>
@@ -65,11 +38,9 @@ int main() {
         cout << "After list construction" << endl;
         this_thread::sleep_for(chrono::seconds(3));
     }
-    //cout << p->get(5) << endl;  // Segmentation fault
 
     cout << "After loop" << endl;
     this_thread::sleep_for(chrono::seconds(3));
-
 
     //IntList* listArray = new IntList[10];
     //vector<int>* a = new vector<int>[10];

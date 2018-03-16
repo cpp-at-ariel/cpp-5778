@@ -7,7 +7,6 @@ class Point {
   private:    // Not required. All is private by default.
     int x;
     int y;
-    int z;
 
   public:
     // methods defined inline:
@@ -21,6 +20,7 @@ class Point {
     string to_string();
 
     // Constructors:
-    Point() { x = 5; y = 7; }
+    Point() { x = 99; y = 11; }
+    Point(int z) { x = y = z; }
     Point(int, int);
 };
