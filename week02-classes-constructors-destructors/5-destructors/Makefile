@@ -11,36 +11,21 @@
 CXX=clang++-5.0
 RM=rm -f
 CPPFLAGS=-std=c++17 
-LDFLAGS=
-LDLIBS=
 
 ifndef MAIN
   MAIN=./main.cpp
 endif
 
-MAINEXECUTABLE=$(subst .cxx,,$(MAIN)).exe
+MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
 
-SRCS=$(shell ls units/*.cpp) $(MAIN)
-OBJS=$(subst .c%,.o,$(SRCS))
+SOURCES=$(shell ls units/*.cpp) $(MAIN)
+HEADERS=$(shell ls units/*.h*)
 
 all: $(MAINEXECUTABLE)
 	$(MAINEXECUTABLE)
 
-$(MAINEXECUTABLE): $(OBJS)
-	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(MAINEXECUTABLE)
-
-depend: .depend
-
-.depend: $(SRCS)
-	$(RM) ./.depend
-	$(CXX) $(CPPFLAGS) -MM $^>>./.depend;
+$(MAINEXECUTABLE): $(SOURCES) $(HEADERS)
+	$(CXX) $(CPPFLAGS) $(SOURCES) -o $(MAINEXECUTABLE)
 
 clean:
-	$(RM) $(OBJS)
-	$(RM) *.o
 	$(RM) *.exe
-
-distclean: clean
-	$(RM) *~ .depend
-
-include .depend

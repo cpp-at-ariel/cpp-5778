@@ -1,5 +1,8 @@
 #include "Point.hpp"
-#include "Rectangle.hpp"
+
+// The following line demonstrates the importance of "pragma once":
+#include "Rectangle.hpp"  
+
 #include <iostream>
 using namespace std;
 
@@ -39,11 +42,5 @@ int main() {
     //Point p3();
     //cout << p3.to_string() << endl;
     //   Compilation error! Empty parentheses interpreted as a function declaration!
-
-    Rectangle r;
-        // Calls default constructor,
-        //    which calls default Point constructors.
-    cout << r.to_string() << endl;
-
     return 0;
 }

@@ -15,13 +15,13 @@ LDFLAGS=
 LDLIBS=
 
 ifndef MAIN
-  MAIN=./main.cpp
+  MAIN=./LineTest.cpp
 endif
 
-MAINEXECUTABLE=$(subst .cxx,,$(MAIN)).exe
+MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
 
 SRCS=$(shell ls units/*.cpp) $(MAIN)
-OBJS=$(subst .c%,.o,$(SRCS))
+OBJS=$(subst .cpp,.o,$(SRCS))
 
 all: $(MAINEXECUTABLE)
 	$(MAINEXECUTABLE)
