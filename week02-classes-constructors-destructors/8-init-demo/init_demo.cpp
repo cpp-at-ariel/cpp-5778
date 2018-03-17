@@ -27,31 +27,30 @@ int main() {
 		cout << c[0] << " " << c[1] << endl;
 		cout << d[0] << " " << d[1] << endl;
 		cout << e << endl;
-		
+
 		delete[] d;
 	}
 
-	
+
 	{
 		cout << endl << "Parameterless ctor:" << endl;
 		C c{};
 		c.print();
 	}
 
-	
+
 	{
 		cout << endl << "bool ctor:" << endl;
 		C c{true};
 		c.print();
 	}
 
-	
+
 	{
 		cout << endl << "int ctor:" << endl;
 		C c{3};
 		c.print();
 	}
-
 
 	{
 		cout << endl << "Function that returns an object:" << endl;

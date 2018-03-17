@@ -5,11 +5,13 @@ using namespace std;
 
 int main() {
     Point p (3,4);
-    cout << p.to_string() << endl;
+    cout << "p=" << p.to_string() << endl;
 
     Line l1;
-    cout << l1.to_string() << endl;
+    cout << "l1=" << l1.to_string() << endl;
     l1.set(1,2,3,4);
-    cout << l1.to_string() << endl;
+    cout << "l1=" << l1.to_string() << endl;
+    Line l2(5,6,7,8);
+    cout << "l2=" << l2.to_string() << endl;
     return 0;
 }

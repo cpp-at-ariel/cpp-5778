@@ -12,7 +12,10 @@ class Point {
     void setY(int);
     string to_string();
 
-    Point() {x=y=9;}; 
-    Point(int z) {this->x=this->y=z;}
-    Point(int x, int y) {this->x=x; this->y=y;}
+    Point(): x(9), y(9) { }
+    //Point() { x=y=9; }
+    Point(int z): x(z), y(z) { }
+    //Point(int z) { x=y=z; }
+    Point(int xx, int yy): x(xx), y(yy)  { }
+    // Point(int xx, int yy):  {this->x=xx; this->y=yy;}
 };
