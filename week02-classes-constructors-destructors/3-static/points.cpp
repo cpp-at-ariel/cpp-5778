@@ -24,6 +24,8 @@ class Point {
     }
 
     void setY(int newY) { 
+        if (newY>MAXY)
+            throw "New y is too large! The maximum is "+std::to_string(MAXY);
         y = newY; 
     }
 
