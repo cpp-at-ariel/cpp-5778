@@ -10,10 +10,16 @@
 using namespace std;
 
 int main() {
-    cout << (~0) << endl;
     {
-        IntList l1(1000);
-        l1.fill(99);
+        IntList l0(1000);
+        l0.fill(99);
+        cout << "l0.get(5) = " << l0.get(5) << endl;
+        //l0.~IntList();
+    }
+
+    {
+        IntList l1(2000);
+        l1.fill(999);
         cout << "l1.get(5) = " << l1.get(5) << endl;
         if (3>2) {
             IntList l2 = l1;

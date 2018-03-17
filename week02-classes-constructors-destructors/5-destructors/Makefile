@@ -27,5 +27,8 @@ all: $(MAINEXECUTABLE)
 $(MAINEXECUTABLE): $(SOURCES) $(HEADERS)
 	$(CXX) $(CPPFLAGS) $(SOURCES) -o $(MAINEXECUTABLE)
 
+valgrind:
+	valgrind --leak-check=full -v ./$(MAINEXECUTABLE)
+
 clean:
-	$(RM) *.exe
+	$(RM) *.exe a.out

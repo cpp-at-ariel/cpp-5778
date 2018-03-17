@@ -1,6 +1,6 @@
 public class Line
 {
-	public Point p1, p2;
+	private Point p1, p2;
 
 	public void set(int x1,int y1,int x2,int y2) {
 		p1.setX(x1);
