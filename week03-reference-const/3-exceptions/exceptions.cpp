@@ -1,3 +1,9 @@
+/**
+ * Demostrates exceptions vs. assertions.
+ * @author Erel Segal-Halevi
+ * @since  2018-03
+ */
+
 #include <iostream>
 #include <cmath>
 #include <string>
