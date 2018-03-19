@@ -8,13 +8,21 @@ using namespace std;
 class Point {
     int x;
     int y;
+    int index;
+
+    // A non-static const must be initialized out-of-line:
+    static int nextPointIndex;
 
   public:
 
+    Point() {
+        this->index = nextPointIndex;
+        nextPointIndex++;
+    }
+
     // A static const can be initialized inline:
     static const int MAXX=1366;
-    // A non-static const must be initialized out-of-line:
-    static int MAXY;
+    static const int MAXY=768;
 
     void setX(int newX) { 
         if (newX>MAXX)
@@ -29,7 +37,7 @@ class Point {
     }
 
     string to_string() {
-        return "("+std::to_string(x)+","+std::to_string(y)+")";
+        return std::to_string(index)+"("+std::to_string(x)+","+std::to_string(y)+")";
     }
 
     static void showMax() {
@@ -37,7 +45,7 @@ class Point {
     }
 };
 
-int Point::MAXY = 768;
+int Point::nextPointIndex = 0;
 
 
 int main() {

@@ -12,7 +12,7 @@ endif
 
 MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
 
-SOURCES=$(MAIN)
+SOURCES=$(MAIN) $(subst _test,,$(MAIN))
 
 all: $(MAINEXECUTABLE)
 	$(MAINEXECUTABLE)

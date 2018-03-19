@@ -5,6 +5,8 @@
 CXX=clang++-5.0
 RM=rm -f
 CPPFLAGS=-std=c++17 
+VALGRIND_FLAGS=
+# VALGRIND_FLAGS=-v --leak-check=full --show-leak-kinds=all
 
 ifndef MAIN
   MAIN=./main.cpp
@@ -15,10 +17,10 @@ MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
 SOURCES=$(MAIN)
 
 all: $(MAINEXECUTABLE)
-	$(MAINEXECUTABLE)
+	valgrind --tool=memcheck $(VALGRIND_FLAGS) $(MAINEXECUTABLE)
 
-$(MAINEXECUTABLE): $(SOURCES) $(HEADERS)
+$(MAINEXECUTABLE): $(SOURCES)
 	$(CXX) $(CPPFLAGS) $(SOURCES) -o $(MAINEXECUTABLE)
 
 clean:
-	$(RM) *.exe a.out *.class
+	$(RM) *.exe a.out

@@ -1,0 +1,40 @@
+/**
+ * Demonstrates references in C++.
+ * @author Erel Segal-Halevi
+ * @since 2018-02
+ */
+
+int main() {
+    int num = 1;
+    int x = 2; 
+
+    // Pointer:
+    int* pnum = &num;
+    cout << "pnum = " << pnum << " " << *pnum << " " << num << endl;
+    (*pnum) = 2;
+    cout << "pnum = " << pnum << " " << *pnum << " " << num << endl;
+
+    // Reference:
+    int& rnum = num;
+    cout << "rnum = " << &rnum << " " << rnum << " " << num << endl;
+    rnum = 3;
+    cout << "rnum = " << &rnum << " " << rnum << " " << num << endl;
+
+    // Conditionally init a reference:
+    int& r2 = (2>3? num: x);
+    cout << "r2 = " << r2 << endl;
+
+    // References and rvalues:
+    //int& rnum2 = 10; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+
+    // const references and rvalues:
+    const int& crnum1 = 10;
+    //crnum1 = 7;          // error: variable 'crnum1' declared const here
+
+    cout << "crnum1 = " << &crnum1 << " " << crnum1 << endl;
+
+    // Segmentation fault:
+    //int* nullnumptr = nullptr;
+    //int& nullnumref = *nullnumptr;
+    //cout << nullnumptr << endl << &nullnumref << endl << (*nullnumptr) << endl << nullnumref << endl; // segmentation fault
+}
