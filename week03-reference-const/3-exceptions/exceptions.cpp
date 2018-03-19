@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <cassert>
 #include <string>
 using std::cout, std::endl, std::string;
 
@@ -32,17 +33,20 @@ double sqrt2(double x) {
 
 
 int main() {
-	cout << "std::sqrt(-1) " << std::sqrt(-1) << endl;
+	cout << "std::sqrt(4) " << std::sqrt(4) << endl;
+	cout << "std::sqrt(-4) " << std::sqrt(-4) << endl;
 
 	try {
-		cout << "sqrt1(-1) " << sqrt1(-1) << endl;
+		cout << "sqrt1(4) " << sqrt1(4) << endl;
+		cout << "sqrt1(-4) " << sqrt1(-4) << endl;
 	} 
 	catch (char const* message) {
 		cout << "   caught exception: " << message << endl;
 	}
 
 	try {
-		cout << "sqrt2(-1) " << sqrt2(-1) << endl;
+		cout << "sqrt2(4) " << sqrt2(4) << endl;
+		cout << "sqrt2(-4) " << sqrt2(-4) << endl;
 	} 
 	catch (argument_must_be_positive message) {
 		cout << "   caught exception of type " << typeid(message).name() << endl;

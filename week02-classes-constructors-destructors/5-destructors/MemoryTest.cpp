@@ -40,7 +40,7 @@ int main() {
     }
 
     cout << "After loop" << endl;
-    this_thread::sleep_for(chrono::seconds(3));
+    this_thread::sleep_for(chrono::seconds(TIME));
 
     //IntList* listArray = new IntList[10];
     //vector<int>* a = new vector<int>[10];
