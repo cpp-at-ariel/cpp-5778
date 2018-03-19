@@ -47,14 +47,10 @@ public:
 	
 	IntBuffer& operator=(const IntBuffer& other) {
 		if (this!=&other) {
-#ifdef INT_BUFFER_MALLOC_REALLOC_VERSION
-			_buf= (int*)realloc(_buf, other.size()*sizeof(int));
-#else
-			freeMemory(); // why not, call destructor or delete this?
-			              // answer: undefined behavior as we use destructor twice.
+			freeMemory(); // why not call destructor or delete this?
+			              // ANSWER: undefined behavior as we use destructor twice.
 			              // Destructor is not only its body!
 			_buf= getMemory(other.size());
-#endif
 			_size= other.size();
 			copyVals(other);
 		}

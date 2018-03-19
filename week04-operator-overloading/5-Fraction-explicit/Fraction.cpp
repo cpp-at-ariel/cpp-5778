@@ -1,5 +1,6 @@
 /**
- * A minimal Fraction class for demonstration purposes.
+ * A minimal Fraction class for demonstrating
+ *    ambiguity caused by type-conversion operators.
  * 
  * @author Erel Segal-Halevi
  * @since 2018

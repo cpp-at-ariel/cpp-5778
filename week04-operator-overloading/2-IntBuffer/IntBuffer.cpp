@@ -12,17 +12,9 @@ void IntBuffer::copyVals(const IntBuffer& other) {
 }
 
 void IntBuffer::freeMemory() {
-#ifdef INT_BUFFER_MALLOC_REALLOC_VERSION
-		free(_buf);
-#else
-		delete[] _buf;
-#endif
+	delete[] _buf;
 }
 	
 int* IntBuffer::getMemory(size_t size) {
-#ifdef INT_BUFFER_MALLOC_REALLOC_VERSION
-	return (int*)malloc(size*sizeof(int));
-#else
 	return new int[size];
-#endif
 }

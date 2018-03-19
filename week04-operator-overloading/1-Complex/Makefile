@@ -76,9 +76,6 @@ valgrindinstall:
 
 .PHONY: all clean depend installonce gtestinstall makedependinstall valgrindinstall
 
-
-# DO NOT DELETE THIS LINE -- make depend depends on it.
-
 Complex.o: Complex.hpp
 ComplexDemo.o: Complex.hpp
 ComplexTest.o: Complex.hpp
