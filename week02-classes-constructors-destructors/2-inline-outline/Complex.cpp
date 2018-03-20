@@ -21,7 +21,7 @@ public:
 
 // "outline" constructor implementation:
 Complex::Complex(double re, double im) {  
-    this->re = re;
+    (*this).re = re;
     this->im = im; 
 }   
 

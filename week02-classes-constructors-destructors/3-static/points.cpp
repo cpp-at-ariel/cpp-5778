@@ -37,6 +37,8 @@ class Point {
     }
 };
 
+
+
 int Point::MAXY = 768;
 
 
@@ -53,7 +55,7 @@ int main() {
     cout << Point::MAXX << "," << Point::MAXY << endl;
     Point::showMax();
 
-    //p3.setX(2000);  // exception
+    //p2.setX(2000);  // exception
 
     return 0;
 }

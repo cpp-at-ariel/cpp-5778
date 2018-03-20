@@ -2,7 +2,6 @@
 
 
 void Point::setX(int newX) { 
-	x = 0;
 	x = newX; 
 }
 

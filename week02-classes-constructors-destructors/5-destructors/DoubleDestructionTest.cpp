@@ -21,7 +21,7 @@ int main() {
         IntList l1(2000);
         l1.fill(999);
         cout << "l1.get(5) = " << l1.get(5) << endl;
-        if (3>2) {
+        {
             IntList l2 = l1;
             cout << "l2.get(5) = " << l2.get(5) << endl;
         }

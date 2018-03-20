@@ -16,19 +16,19 @@ using namespace std;
 #include <chrono>
 #include <vector>
 constexpr int SIZE=100000*1024; // 100000 KB
-constexpr int TIME=0; // seconds
+constexpr int TIME=2; // seconds
 
 int main() {
     cout << "Before loop" << endl;
     this_thread::sleep_for(chrono::seconds(TIME));
 
-    IntList* p;
+    //IntList* p;
     for (uint i=0; i<5; ++i) {
         cout << "Before list construction" << endl;
         this_thread::sleep_for(chrono::seconds(TIME));
 
         IntList list(SIZE);
-        p = &list;
+        //p = &list;
         cout << list.get(5) << endl;
         list.fill(9);
         cout << list.get(5) << endl;

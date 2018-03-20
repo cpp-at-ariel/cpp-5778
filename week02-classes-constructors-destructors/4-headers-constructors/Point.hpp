@@ -19,8 +19,8 @@ class Point {
 
     string to_string();
 
-    // Constructors:
-    Point() { x = 99; y = 11; }
+    // // Constructors:
+    //Point() { x = 88; y = 11; }
     Point(int z) { x = y = z; }
     Point(int, int);
 };

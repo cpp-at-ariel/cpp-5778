@@ -25,6 +25,7 @@ int main() {
         IntList l(1000);
     cout << "after if" << endl;
 
+
     cout << "{" << endl;
     IntList* p;
     {
