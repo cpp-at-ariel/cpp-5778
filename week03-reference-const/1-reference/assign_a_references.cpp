@@ -1,5 +1,5 @@
 /**
- * Demonstrates references in C++.
+ * Demonstrates assigning values to references in C++.
  * @author Erel Segal-Halevi
  * @since 2018-02
  */
