@@ -4,7 +4,13 @@
  * @since 2018-02
  */
 
+#include <iostream>
+using namespace std;
+
 int main() {
+    int* p1;
+    //int& r1; // compile error
+
     int num = 1;
     int x = 2; 
 
@@ -26,6 +32,7 @@ int main() {
 
     // References and rvalues:
     //int& rnum2 = 10; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+    //rnum2 = 7;
 
     // const references and rvalues:
     const int& crnum1 = 10;

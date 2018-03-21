@@ -21,7 +21,7 @@ MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
 SOURCES=$(shell ls units/*.cpp) $(MAIN)
 HEADERS=$(shell ls units/*.h*)
 
-all: $(MAINEXECUTABLE)
+run: $(MAINEXECUTABLE)
 	$(MAINEXECUTABLE)
 
 $(MAINEXECUTABLE): $(SOURCES) $(HEADERS)

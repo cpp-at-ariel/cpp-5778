@@ -13,6 +13,7 @@ class Line
 			p1{xy1}, p2{xy2}
 			{ }
 		Line(int x1,int y1,int x2,int y2);
+		
 		void set(int x1,int y1,int x2,int y2);
 		void set(const Point& p1,const Point& p2);
 		string to_string();

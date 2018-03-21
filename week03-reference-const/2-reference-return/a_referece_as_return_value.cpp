@@ -12,7 +12,6 @@ int globalnum = 11;
 
 int g1() { 
     return globalnum;
-	// OK - returns
 }
 
 int& g2() {
@@ -52,7 +51,7 @@ int main() {
     cout << "globalnum = " << globalnum << endl;
     cout << "g2() = " << g2() << endl;
 
-    // g3() = 33; // compilation error
+    //g3() = 33; // compilation error
 
     cout << "g4() = " << g4() << endl;
 	g4() = 14;

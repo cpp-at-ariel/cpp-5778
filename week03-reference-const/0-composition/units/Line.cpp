@@ -1,7 +1,11 @@
 #include "Line.hpp"
 
+int sqr(int x) {
+	return x*x;
+}
+
 Line::Line(int x1,int y1,int x2,int y2): 
-	p1{x1,y1}, p2{x2,y2} 
+	p1{sqr(x1),sqr(y1)}, p2{x2,y2} 
 	{ }
 
 
