@@ -12,7 +12,6 @@ int main() {
     //int& r1; // compile error
 
     int num = 1;
-    int x = 2; 
 
     // Pointer:
     int* pnum = &num;
@@ -25,10 +24,6 @@ int main() {
     cout << "rnum = " << &rnum << " " << rnum << " " << num << endl;
     rnum = 3;
     cout << "rnum = " << &rnum << " " << rnum << " " << num << endl;
-
-    // Conditionally init a reference:
-    int& r2 = (2>3? num: x);
-    cout << "r2 = " << r2 << endl;
 
     // References and rvalues:
     //int& rnum2 = 10; // error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'

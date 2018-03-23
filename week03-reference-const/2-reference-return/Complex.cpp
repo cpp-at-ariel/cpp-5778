@@ -14,16 +14,6 @@ class Complex {
 public:
     Complex() {  _re = _im  = 0; }    // inline constructor
 
-    double real() const {  // getter
-        cout << "real const" << endl;
-        return _re;
-    }
-
-    double& real() {       // setter
-        cout << "real non-const" << endl;
-        return _re;
-    }
-
     Complex& setReal(double r) { 
         _re = r; 
         return *this;
@@ -48,13 +38,6 @@ public:
 
 int main() {
     Complex a;
-    a.real() = 5;
-    cout << a.real() << endl;
-
-    const Complex c;
-    //c.real() = 5;
-    cout << c.real() << endl;
-
     cout << a.to_string() << endl;
     a.setReal(1).setImag(2);
     cout << a.to_string() << endl;
