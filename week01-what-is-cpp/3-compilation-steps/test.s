@@ -1,8 +1,4 @@
-	.text
-	.file	"test.cxx"
 	.globl	_Z6squarei              # -- Begin function _Z6squarei
-	.p2align	4, 0x90
-	.type	_Z6squarei,@function
 _Z6squarei:                             # @_Z6squarei
 	.cfi_startproc
 # BB#0:

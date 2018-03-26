@@ -1,5 +1,5 @@
 /**
- * Demo of overriding the comma operator.
+ * Demo of overloading the comma operator.
  * See: https://stackoverflow.com/a/18136340/827927
  * 
  * Not very useful.
@@ -12,13 +12,20 @@
 using namespace std;
 
 enum myint {};
+myint operator"" i(unsigned long long int j)  {return myint(j);}
 
 class IntPair {
 	int i, j;
 public:
 	IntPair(int ii, int jj): i(ii), j(jj) {}
 	friend ostream& operator<< (ostream& out, const IntPair& pair);
+	friend IntPair operator+ (IntPair a, IntPair b);
 };
+
+
+IntPair operator+ (IntPair a, IntPair b) {
+	return IntPair(a.i+b.i, a.j+b.j);
+}
 
 ostream& operator<< (ostream& out, const IntPair& pair) {
 	out << pair.i << "," << pair.j;
@@ -33,6 +40,6 @@ int main() {
 	IntPair p1(1,2) ;
 	cout << "p1 = " << p1 << endl;
 
-	cout << (myint(3),myint(4)) << endl;
+	cout << (3i,4i)+(5i,6i) << endl;
 	return 0;
 }
