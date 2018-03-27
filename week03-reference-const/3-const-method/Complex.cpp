@@ -15,9 +15,12 @@ public:
     Complex(double re=0, double im=0): 
         _re(re),
         _im(im)
-        {  }
+        {  
+            //this++; // compile error
+        }
 
     double real() const {  // getter
+        //_im = 7;  // compile error
         cout << "real const" << endl;
         return _re;
     }

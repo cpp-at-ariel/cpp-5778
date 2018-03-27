@@ -36,7 +36,7 @@ int main() {
     cout << "crnum1 = " << &crnum1 << " " << crnum1 << endl;
 
     // Segmentation fault:
-    //int* nullnumptr = nullptr;
-    //int& nullnumref = *nullnumptr;
-    //cout << nullnumptr << endl << &nullnumref << endl << (*nullnumptr) << endl << nullnumref << endl; // segmentation fault
+    int* nullnumptr = nullptr;
+    int& nullnumref = *nullnumptr;
+    cout << nullnumptr << endl << &nullnumref << endl << (*nullnumptr) << endl << nullnumref << endl; // segmentation fault
 }

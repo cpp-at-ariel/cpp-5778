@@ -17,5 +17,5 @@ class Point {
     Point(int z): x(z), y(z) { }
     //Point(int z) { x=y=z; }
     Point(int xx, int yy): x(xx), y(yy)  { }
-    // Point(int xx, int yy):  {this->x=xx; this->y=yy;}
+    //Point(int xx, int yy)  {this->x=xx; this->y=yy;}
 };
