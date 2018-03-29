@@ -7,6 +7,8 @@
 
 #include <cassert>
 #include <cstdlib> // for size_t
+#include <iostream> 
+
 
 class IntBuffer {
 
@@ -63,11 +65,13 @@ public:
 	//---------------------------------------------------------
 	int& operator[](size_t i) {
 		assert(i<size());
+		std::cout << "int& operator[]" << std::endl;
 		return _buf[i];
 	}
 	
 	const int& operator[](size_t i) const {
 		assert(i<size());
+		std::cout << "const int& operator[] const" << std::endl;
 		return _buf[i];
 	}
 	//---------------------------------------------------------

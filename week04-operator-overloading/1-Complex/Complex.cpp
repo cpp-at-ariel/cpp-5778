@@ -8,12 +8,14 @@
 #include "Complex.hpp"
 using namespace std;
 
-static istream& getAndCheckNextCharIs(istream& input, char ch) {
-    char tmp;
-    input >> tmp;
+static istream& getAndCheckNextCharIs(istream& input, char expectedChar) {
+    char actualChar;
+    input >> actualChar;
     if (!input) return input;
-    // failbit is for format error
-    if (tmp!=ch) input.setstate(ios::failbit);
+
+    if (actualChar!=expectedChar) 
+        // failbit is for format error
+        input.setstate(ios::failbit);
     return input;
 }
 
@@ -33,9 +35,9 @@ istream& operator>> (istream& input, Complex& c) {
     // remember place for rewinding
     ios::pos_type startPosition = input.tellg();
 
-    if ( (!(input >> c._re))||
-         (!getAndCheckNextCharIs(input,'+'))||
-         (!(input >> c._im))||
+    if ( (!(input >> c._re))                 ||
+         (!getAndCheckNextCharIs(input,'+')) ||
+         (!(input >> c._im))                 ||
          (!(getAndCheckNextCharIs(input,'i'))) ) {
 
         // rewind on error

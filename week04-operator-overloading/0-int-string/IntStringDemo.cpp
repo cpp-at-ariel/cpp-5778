@@ -15,6 +15,10 @@ string operator* (int n, string s){
 }
 
 
+// string operator* (string s, int n) {
+//     return n*s;
+// }
+
 int main() {
     string x="abc";
     cout << (3 * x) << endl;

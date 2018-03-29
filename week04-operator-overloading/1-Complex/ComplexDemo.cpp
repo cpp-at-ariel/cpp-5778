@@ -13,8 +13,16 @@ using namespace std;
 int main(int argc, char **argv) {
     cout << "Complex Demo" << endl;
 
-    Complex c1(3.14, -1.0), c2(42.0), c3;
-    cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;
+    Complex c1(1,2), c2(3,4), c3;
+    //cout << c1[5] << endl;
+    cout << "c1 = " << c1 << endl << "c2 = " << c2 << endl << "c3 = " << c3 << endl << endl;    
+    cout << (c1 += c2 += Complex(5,6)) << endl;
+    cout << "c1 = " << c1 << endl;
+    cout << "-c1 = " << -c1 << endl;
+    c1.operator+=(c2); // equivalent to c1+=c2;
+    cout << "c1 = " << c1 << endl;
+    //-c1 = c2;
+    //cout << "-c1 = " << -c1 << endl;
 
     cout << "c1+c2 = " << (c1+c2) << endl;
     cout << "c1+c2 = " << operator+(c1,c2) << endl << endl;
@@ -70,7 +78,10 @@ int main(int argc, char **argv) {
     c3= c1 * c2;
     assert (c1*c2==c3);
 
-      
+    cout << "c1 is now " << c1<<endl;
+    cout << "Enter a complex number: ";
+    cin >> c1;
+    cout << endl << "You entered " << c1<<endl;
 
 
     if (argc!=2) {

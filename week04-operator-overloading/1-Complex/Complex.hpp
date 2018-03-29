@@ -119,6 +119,9 @@ public:
 //----------------------------------------
 inline ostream& operator<< (ostream& os, const Complex& c) {
     return (os << c._re << '+' << c._im << 'i');
+    // equivalent to:
+    // os << c._re << '+' << c._im << 'i'
+    // return os;
 }
 //----------------------------------------
 

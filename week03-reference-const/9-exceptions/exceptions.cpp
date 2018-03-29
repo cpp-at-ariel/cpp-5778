@@ -26,6 +26,8 @@ double sqrt2(double x) {
 	if (x<0)
 		throw argument_must_be_positive{};
 	double result = -std::sqrt(x);
+	// if (result<0)
+	// 	throw "result should be >=0";
 	assert (result>=0);
 	return result;
 }
@@ -34,7 +36,7 @@ double sqrt2(double x) {
 int main() {
 	cout << "std::sqrt(4) " << std::sqrt(4) << endl;
 	cout << "std::sqrt(-4) " << std::sqrt(-4) << endl;
-
+/*
 	try {
 		cout << "sqrt1(4) " << sqrt1(4) << endl;
 		cout << "sqrt1(-4) " << sqrt1(-4) << endl;
@@ -42,12 +44,12 @@ int main() {
 	catch (const char* message) {
 		cout << "   caught exception: " << message << endl;
 	}
-
-	try {
+*/
+	// try {
+		// cout << "sqrt2(-4) " << sqrt2(-4) << endl;
 		cout << "sqrt2(4) " << sqrt2(4) << endl;
-		cout << "sqrt2(-4) " << sqrt2(-4) << endl;
-	} 
-	catch (argument_must_be_positive message) {
-		cout << "   caught exception of type " << typeid(message).name() << endl;
-	}
+	// } 
+	// catch (argument_must_be_positive message) {
+	// 	cout << "   caught exception of type " << typeid(message).name() << endl;
+	// }
 }
