@@ -27,6 +27,7 @@ public:
 	// See	https://stackoverflow.com/a/49092822/827927
 	Fraction(int nn): Fraction(nn, 1) { }
 	operator double() const { return double(nom) / den; }
+	//operator char() const { return 'a'; }
 };
 
 ostream& operator<<(ostream& os, const Fraction& frac) {
@@ -38,10 +39,16 @@ int main() {
 	Fraction f1 {1, 4};
 	cout << "f1 = " << f1 << endl;
 	double d1 {f1};
+	// equivalent to: double d1 = f1;
 	cout << "d1 = " << d1 << endl;
-	// Fraction f2 {2};
-	// cout << "f2 = " << f2 << endl;
+	Fraction f2 {2};
+	cout << "f2 = " << f2 << endl;
+	cout << ((Fraction)2) << endl;
+	//cout << "f1+2 = " << (f1 + 2) << endl;   // ambiguous!
+	cout << "f1+2 = " << (f1 + Fraction{2}) << endl;   // OK!
+	cout << "f1+2 = " << (double{f1} + 2) << endl;    // OK!
 
-	cout << "f1+2 = " << (f1 + 2) << endl;   // ambiguous!
+	char c = f1;
+	cout << c << endl;
 	return 0;
 }

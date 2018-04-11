@@ -7,7 +7,8 @@
 
 void IntBuffer::copyVals(const IntBuffer& other) {
 	for (size_t i= 0; i<other.size(); ++i) {
-		(*this)[i]= other[i];
+		//(*this)[i]= other[i]; // equivalent to:
+		this->operator[](i) = other.operator[](i);
 	}
 }
 

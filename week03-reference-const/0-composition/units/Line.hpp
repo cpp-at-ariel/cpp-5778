@@ -3,6 +3,9 @@
 #include <iostream>
 #include "Point.hpp"
 
+// #ifndef __POINT_HPP
+// #define __POINT_HPP
+
 class Line
 {
 	private:
@@ -18,3 +21,5 @@ class Line
 		void set(const Point& p1,const Point& p2);
 		string to_string();
 };
+
+// #endif

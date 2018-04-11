@@ -9,8 +9,8 @@ using namespace std;
 
 class IntList {
     private:
-        int* theInts;
         uint numInts;
+        int* theInts;
 
     public:
         IntList(uint newNumInts): 
@@ -43,7 +43,9 @@ int main() {
     list1 = 1;
     cout << "list1[5] = " << list1[5] << endl << endl;
 
-    IntList list2 {list1};  
+    IntList list2 {list1};
+    // IntList list2 (list1);
+    // IntList list2 = list1;
     cout << "list1[5] = " << list1[5] << endl;
     cout << "list2[5] = " << list2[5] << endl;
     list2 = 2;
@@ -51,7 +53,12 @@ int main() {
     cout << "list2[5] = " << list2[5] << endl << endl;
 
     IntList list3{20};
+
+
     list3 = list1;
+    // equivalent to: 
+    // list3.operator=(list1);
+
     cout << "list1[5] = " << list1[5] << endl;
     cout << "list3[5] = " << list3[5] << endl;
     list3 = 3;

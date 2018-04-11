@@ -30,7 +30,10 @@ public:
 		return _size;
 	}
 	
-	explicit IntBuffer(size_t size) : _buf(getMemory(size)), _size(size) {}
+	explicit IntBuffer(size_t size): 
+	_buf(getMemory(size)), 
+	_size(size) 
+		{}
 	
 	//---------------------------------------------------------
 	// Rule of three (in C++11 it will be rule of 5)
@@ -77,6 +80,12 @@ public:
 	//---------------------------------------------------------
 	
 };
+
+class DoubleBuffer {
+	IntBuffer b1;
+	IntBuffer b2;
+	//...
+}
 
 // Q: If we'll have a class with a field IntBuffer, will it also need the rule of 3?
 // A: No, as the default dtor, copy ctor, op= will call IntBuffer dtor, copy ctor, op= respectively
