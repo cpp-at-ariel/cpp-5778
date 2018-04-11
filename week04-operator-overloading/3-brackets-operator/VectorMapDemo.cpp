@@ -1,5 +1,5 @@
 /**
- * Demonstrates operator overloading in C++.
+ * Demonstrates brackets operator in STL.
  * @author Erel Segal-Halevi
  * @since 2018-03
  */

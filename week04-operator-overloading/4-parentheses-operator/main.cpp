@@ -46,5 +46,3 @@ int main() {
 	vector<int> v {-5,4,-3,2,-1,0};
 	filter(v, f);  // prints 4, 2
 }
-
-
