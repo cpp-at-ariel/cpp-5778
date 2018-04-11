@@ -55,14 +55,28 @@ public:
         return *this;
     }
 
+    Complex& operator-=(const Complex& other) {
+        _re-= other._re;
+        _im-= other._im;
+        return *this;
+    }
+
+    // const Complex operator+(const Complex& other) const {
+    //     return Complex(_re + other._re, _im + other._im);
+    // }
+
+    const Complex operator-(const Complex& other) const {
+        return Complex(_re - other._re, _im - other._im);
+    }
+
     Complex& operator*=(const Complex& other) {
-        double other_old_re= other._re; // in case we multiply with itself
-        double old_re= _re;
-		_re= _re*other._re - _im*other._im;
-		_im= old_re*other._im + _im*other_old_re;
+        double new_re = _re*other._re - _im*other._im;
+        double new_im = _re*other._im + _im*other._re; 
+        _re = new_re;
+        _im = new_im;
 		// version with bug
-		//_re= _re*other._re - _im*other._im;
-		//_im= _re*other._im + _im*other._re; 
+		// _im= _re*other._im + _im*other._re; 
+		// _re= _re*other._re - _im*other._im;
 		return *this;
     }
     //----------------------------------------
@@ -88,14 +102,25 @@ public:
     const Complex operator-() const {
         return Complex(-_re , -_im);
     }
-    //----------------------------------
 
+    // Logical NOT
     bool operator!() const {
         return _re==0 && _im==0;
     }
 
+    // Bitwise NOT
+    // bool operator~() const {
+    //     return _re==0 && _im==0;
+    // }
 
 
+    /* Works, but unexpected - don't do it 
+    ostream& operator<< (ostream& os) const {
+        os << "(" << _re << "+" << _im << "i)";
+        return os;
+    }
+    */
+    
     //----------------------------------
     // friend global IO operators
     //----------------------------------
@@ -118,10 +143,10 @@ public:
 // friend global IO operators
 //----------------------------------------
 inline ostream& operator<< (ostream& os, const Complex& c) {
-    return (os << c._re << '+' << c._im << 'i');
+    // return (os << c._re << '+' << c._im << 'i');
     // equivalent to:
-    // os << c._re << '+' << c._im << 'i'
-    // return os;
+    os << c._re << '+' << c._im << 'i';
+    return os;
 }
 //----------------------------------------
 
