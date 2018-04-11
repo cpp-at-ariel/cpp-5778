@@ -41,5 +41,6 @@ int main() {
 	cout << "p1 = " << p1 << endl;
 
 	cout << (3i,4i)+(5i,6i) << endl;
+	//cout << ({3,4}+{5,6}) << endl;
 	return 0;
 }

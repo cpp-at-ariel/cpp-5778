@@ -20,8 +20,7 @@ class Fraction
 	friend 	Fraction 	operator/  (const Fraction& f1, const Fraction& f2);
 	//friend  Fraction    sqrt(const Fraction& f);
 public:
-	double 	ToDouble() const { return double(nom) / den; }
-	operator double() const { return ToDouble(); }
+	operator double() const { return double(nom) / den; }
 	Fraction(int nn, int dn): nom(nn), den(dn) { }
 	//Fraction(int nn): nom(nn), den(1) { }
 

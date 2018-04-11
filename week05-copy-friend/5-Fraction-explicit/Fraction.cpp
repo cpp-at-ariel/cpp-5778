@@ -1,6 +1,6 @@
 /**
  * A minimal Fraction class for demonstrating
- *    ambiguity caused by type-conversion operators.
+ * type-conversion operators and the ambiguity they cause.
  * 
  * @author Erel Segal-Halevi
  * @since 2018
@@ -39,8 +39,8 @@ int main() {
 	cout << "f1 = " << f1 << endl;
 	double d1 {f1};
 	cout << "d1 = " << d1 << endl;
-	Fraction f2 {2};
-	cout << "f2 = " << f2 << endl;
+	// Fraction f2 {2};
+	// cout << "f2 = " << f2 << endl;
 
 	cout << "f1+2 = " << (f1 + 2) << endl;   // ambiguous!
 	return 0;

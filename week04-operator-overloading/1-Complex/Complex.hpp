@@ -81,13 +81,6 @@ public:
     }
     //----------------------------------------
 
-
-    /**
-     * Converts a complex number to a double by taking the complex number's absolute value.
-     */
-    double todouble() const {
-        return _re*_re + _im*_im;
-    }
     /*
     operator double() const {
         return todouble();

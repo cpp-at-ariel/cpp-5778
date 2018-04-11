@@ -1,5 +1,5 @@
 /**
- * Demo of the quotes-suffix operator.
+ * Demo of the quotes operator / suffix operator.
  * 
  * @author Erel Segal-Halevi
  * @since 2018-03
@@ -25,6 +25,9 @@ const Complex operator+(const Complex& c1, const Complex& c2) {
     return Complex(c1._re + c2._re, c1._im + c2._im);
 }
 
+/**
+ * This is the suffix operator.
+ */
 Complex operator"" _i(long double x) {
 	return Complex(0,(double)x);
 }

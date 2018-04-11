@@ -1,5 +1,5 @@
 /**
- * Demo of the comma operator.
+ * Demo of the comma operator without overloading (in C)
  * 
  * @author Erel Segal-Halevi
  * @since 2018-03
