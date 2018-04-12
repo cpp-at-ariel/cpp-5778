@@ -1,5 +1,5 @@
 /**
- * Demostrates exceptions vs. assertions.
+ * Demostrates exceptions and assertions.
  * @author Erel Segal-Halevi
  * @since  2018-03
  */
