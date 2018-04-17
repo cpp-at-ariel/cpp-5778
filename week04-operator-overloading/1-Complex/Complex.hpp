@@ -55,15 +55,15 @@ public:
         return *this;
     }
 
+    // const Complex operator+(const Complex& other) const {
+    //     return Complex(_re + other._re, _im + other._im);
+    // }
+
     Complex& operator-=(const Complex& other) {
         _re-= other._re;
         _im-= other._im;
         return *this;
     }
-
-    // const Complex operator+(const Complex& other) const {
-    //     return Complex(_re + other._re, _im + other._im);
-    // }
 
     const Complex operator-(const Complex& other) const {
         return Complex(_re - other._re, _im - other._im);
@@ -126,10 +126,8 @@ public:
     //-------------------------------------
     friend const Complex operator+ (const Complex& c1, const Complex& c2);
     friend const Complex operator* (const Complex& c1, const Complex& c2);
-    friend bool    operator==(const Complex& c1, const Complex& c2);
-    friend bool    operator!=(const Complex& c1, const Complex& c2);
-    //-------------------------------------
-
+    friend bool operator==(const Complex& c1, const Complex& c2);
+    friend bool operator!=(const Complex& c1, const Complex& c2);
 };
 
 //----------------------------------------
@@ -141,8 +139,8 @@ inline ostream& operator<< (ostream& os, const Complex& c) {
     os << c._re << '+' << c._im << 'i';
     return os;
 }
-//----------------------------------------
 
+//----------------------------------------
 
 //----------------------------------------
 // friend global binary operators
@@ -150,6 +148,7 @@ inline ostream& operator<< (ostream& os, const Complex& c) {
 inline const Complex operator+(const Complex& c1, const Complex& c2) {
     return Complex(c1._re + c2._re, c1._im + c2._im);
 }
+
 
 
 
@@ -167,3 +166,5 @@ inline bool operator==(const Complex& c1, const Complex& c2) {
 inline bool operator!=(const Complex& c1, const Complex& c2) {
     return (!(c1==c2));
 }
+
+
