@@ -33,6 +33,9 @@ private:
 
 int main()
 {
+	cout << "---" << endl;
 	Derived d1;
+	cout << "---" << endl;
 	Derived d2(6, 8);
+	cout << "---" << endl;
 }
