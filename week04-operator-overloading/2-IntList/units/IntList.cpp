@@ -6,9 +6,11 @@ void IntList::operator=(int value) {
 }
 
 int IntList::operator[](uint index) const {
+    cout << "c";
     return theInts[index];
 }
 
 int& IntList::operator[](uint index) {
+    cout << "r";
     return theInts[index];
 }

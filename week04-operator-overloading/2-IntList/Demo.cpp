@@ -12,8 +12,22 @@ using namespace std;
 int main() {
     IntList l0(1000);
     l0 = 99;
+    //equivalent to: l0
+    // l0.operator=(99);
     cout << "l0[5] = " << l0[5] << endl;
+    //equivalent to: 
+    //cout << "l0[5] = " << l0.operator[](5) << endl;
+
+    cout << "l0[first] = " << l0["first"] << endl;
+
     l0[5] = 11;
+    // equivalent to:
+    l0.operator[](5) = 11;
+
     cout << "l0[5] = " << l0[5] << endl;
+
+    const IntList clist(10);
+    cout << "clist[5] = " << clist[5] << endl;
+
     return 0;
 }

@@ -66,4 +66,8 @@ int main() {
     cout << "list3[5] = " << list3[5] << endl << endl;
 
     return 0;
+
+    // list1.~IntList();
+    // list2.~IntList();
+    // list3.~IntList();
 }

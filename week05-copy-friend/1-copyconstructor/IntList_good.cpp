@@ -31,8 +31,8 @@ class IntList {
             cout << "assignment operator doing deep copy..." << endl;
             delete[] theInts;
 
-            theInts = new int[other.numInts]; 
-            theInts[5] = 3474567;  // garbage
+            theInts = new int[other.numInts]; // init
+            //theInts[5] = 3474567;  // garbage
 
             numInts = other.numInts;
             for (uint i=0; i<numInts; ++i)
@@ -102,5 +102,7 @@ int main() {
     cout << "chaining assignments: "<<endl;
     list3 = list2 = list1;
 
+    cout << "---" << endl;
+    IntList list4 = list2 = list1;
     return 0;
 }
