@@ -67,6 +67,7 @@ int main() {
 
     return 0;
 
+    // This happens implicitly:
     // list1.~IntList();
     // list2.~IntList();
     // list3.~IntList();
