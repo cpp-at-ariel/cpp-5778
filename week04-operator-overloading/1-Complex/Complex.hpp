@@ -101,6 +101,20 @@ public:
         return _re==0 && _im==0;
     }
 
+    // prefix increment:
+    Complex& operator++() {
+        _re++;
+        return *this;
+    }
+
+    // postfix increment:
+    const Complex operator++(int flag_for_postfix_increment) {
+        Complex copy = *this;
+        _re++;
+        return copy;
+    }
+    
+
     // Bitwise NOT
     // bool operator~() const {
     //     return _re==0 && _im==0;

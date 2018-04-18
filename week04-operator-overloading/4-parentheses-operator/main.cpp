@@ -56,10 +56,4 @@ int main() {
 	cout << "---" << endl;
 	h(7);  // calls operator
 	// h{7};  // won't compile
-
-	int i=5;
-	//cout << (i++)++;
-	cout << (++i)++ << endl;
-	// here i=7
-	cout << (1+ ++++++i)<<endl;
 }

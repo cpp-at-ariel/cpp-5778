@@ -33,6 +33,9 @@ int main(int argc, char **argv) {
     //-c1 = Complex(5,6);
     cout << "-c1 = " << -c1 << endl;
 
+    cout << "c1++ = " << c1++ << endl;
+    cout << "++c1 = " << ++c1 << endl;
+
     // cout << "c1+c2 = " << (c1+c2) << endl;
     // cout << "c1+c2 = " << operator+(c1,c2) << endl << endl;
 
