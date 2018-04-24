@@ -19,7 +19,8 @@ class IntList {
             {  }
 
         IntList(const IntList& other): 
-            IntList(other.numInts) {
+            IntList(other.numInts) 
+        {
             cout << "copy constructor doing deep copy" << endl;
             for (uint i=0; i<numInts; ++i)
                 theInts[i] = other.theInts[i];
@@ -29,12 +30,14 @@ class IntList {
             if (this==&other)
                 return *this;
             cout << "assignment operator doing deep copy..." << endl;
-            delete[] theInts;
 
-            theInts = new int[other.numInts]; // init
-            //theInts[5] = 3474567;  // garbage
-
-            numInts = other.numInts;
+            if (other.numInts!=this->numInts) {
+                delete[] theInts;
+                theInts = new int[other.numInts]; // init
+                theInts[5] = 3474567;  // garbage
+                numInts = other.numInts;
+            }
+            
             for (uint i=0; i<numInts; ++i)
                     theInts[i] = other.theInts[i];
             return *this;
@@ -63,7 +66,11 @@ class IntList {
         }
 };
 
-int sum(const IntList& list) {
+/**
+ * If you pass a parameter by value - 
+ *    the compiler will call the copy ctor
+ */
+int sum(IntList list) {
     int result=0;
     for (int i=0; i<list.size(); ++i) {
         result += list[i];
@@ -78,10 +85,11 @@ int main() {
     list1 = 1;
     cout << "list1[5] = " << list1[5] << endl << endl;
     cout << "sum(list1) = " << sum(list1) << endl;
+    cout << "---" << endl;
 
-    IntList list2 {list1};
-    // IntList list2 (list1);
-    // IntList list2 = list1;
+    IntList list2 {list1};     // calls copy ctor
+    // IntList list2 (list1);  // calls copy ctor
+    // IntList list2 = list1;  // calls copy ctor
     cout << "list1[5] = " << list1[5] << endl;
     cout << "list2[5] = " << list2[5] << endl;
     list2 = 2;

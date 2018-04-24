@@ -8,7 +8,7 @@
 #include <cmath>
 #include <cassert>
 #include <string>
-using std::cout, std::endl, std::string, std::to_string;
+using namespace std;
 
 // Throw an object:
 class argument_must_be_positive {};
@@ -26,8 +26,11 @@ int main() {
 	cout << "std::sqrt(-4) = " << std::sqrt(-4) << endl;
 	try {
 		cout << "sqrt2(4) = " << sqrt2(4) << endl;
-		cout << "sqrt(-4) = " << sqrt2(-4) << endl;
-	} 
+		cout << "sqrt2(-4) = " << sqrt2(-4) << endl;
+	}
+	//catch (argument_must_be_positive x) {
+	// 	cout << "   caught exception " << typeid(x).name() << endl;
+	//}
 	catch (...) {
 		auto exception = std::current_exception();
 	 	cout << "   caught exception of type " << exception.__cxa_exception_type()->name() << endl;

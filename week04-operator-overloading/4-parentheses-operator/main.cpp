@@ -12,11 +12,17 @@ using namespace std;
 
 class MyFunctor {
 		char _x;
+		int threshold;
 	public:
-		MyFunctor(char x='*') { _x = x; }
-		MyFunctor(int x) {  }
+		MyFunctor(char x='*', int threshold=0): 
+			threshold(threshold), _x(x) 
+			{  }
+
 		void operator() () { cout << _x; }
-		bool operator() (int x) { return x > 0; }
+
+		bool operator() (int x) { return x > threshold; }
+
+		string operator() (char a, double c) { return "what are you doing?!"; }
 };
 
 void repeat(int n, MyFunctor action) {
@@ -29,16 +35,22 @@ void filter(vector<int> v, MyFunctor condition) {
 		if (condition(v[i]))
 		// equivalent to: if (condition.operator()(v[i]))
 			cout << v[i] << " ";
+	cout << endl;
 }
 
 int main() {
 	MyFunctor f;
 	f(); cout << endl; // prints a star
-	cout << endl << f(5) << " " << f(-5) << endl;
+	// equivalent to:
+	//f.operator()();
+	cout << endl << boolalpha << f(5) << " " << f(-5) << endl;
 
 	repeat(10, f); cout << endl; // print 10 stars
-	repeat(10, MyFunctor('^'));    cout << endl;
+	repeat(10, MyFunctor{'^'});    cout << endl;
+	repeat(10, MyFunctor{});    cout << endl;
 
 	vector<int> v {-5,4,-3,2,-1,0};
 	filter(v, f);  // prints 4, 2
+	filter(v, MyFunctor('*', 2));
+	filter(v, MyFunctor('*', -2));
 }

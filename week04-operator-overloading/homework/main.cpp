@@ -4,6 +4,33 @@ using namespace std;
 
 #include "CircularInt.hpp"
 
+class CircularInt {
+	CircularInt& operator/=(const CircularInt& other) {
+		...
+		throw {...}
+	}
+
+	const CircularInt operator/(const CircularInt& other) {
+		CircularInt result = *this;
+		result /= other;
+		return result;
+	}
+
+	CircularInt& operator+= (int x) {
+		...
+	}
+
+	CircularInt& operator+= (const CircularInt& x) {
+		//return this->operator+=(x.number);
+		return (*this) += x.number;
+	}
+
+	const CircularInt operator+ (int x) {
+		CircularInt result = *this;
+		result += x;
+		return result;
+	}
+}
 
 int main() {
 	CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>

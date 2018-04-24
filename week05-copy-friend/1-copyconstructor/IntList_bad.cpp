@@ -22,6 +22,10 @@ class IntList {
             delete[] theInts;
         }
 
+        int size() const { 
+            return numInts; 
+        }
+
         void operator=(int value) {
             cout << "filling with "<<value<<"..."<<endl;
             for (uint i=0; i<this->numInts; ++i)
@@ -37,11 +41,26 @@ class IntList {
         }
 };
 
+/**
+ * If you pass a parameter by value - 
+ *    the compiler will call the DEFAULT copy ctor
+ */
+int sum(IntList list) {
+    int result=0;
+    for (int i=0; i<list.size(); ++i) {
+        result += list[i];
+    }
+    return result;
+}
+
+
 int main() {
     IntList list1 {10};
     cout << "list1[5] = " << list1[5] << endl;
     list1 = 1;
     cout << "list1[5] = " << list1[5] << endl << endl;
+    cout << "sum(list1) = " << sum(list1) << endl;
+    cout << "---" << endl;
 
     IntList list2 {list1};
     // IntList list2 (list1);

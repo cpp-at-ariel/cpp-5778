@@ -9,10 +9,11 @@ class IntList {
         uint numInts;
 
     public:
-        IntList(uint numInts) {
+        IntList(uint numInts):
+          numInts(numInts),
+          theInts (new int[numInts])
+        {
             cout << "construct(" << numInts << ")" << endl;
-            theInts = new int[numInts];
-            this->numInts = numInts;
         }
 
         ~IntList() {
@@ -21,6 +22,11 @@ class IntList {
         }
 
         void operator=(int value);
+        
         int operator[](uint index) const;
         int& operator[](uint index);
+
+        int operator[] (string s) const {
+            return theInts[s.size()];
+        }
 };
