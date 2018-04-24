@@ -1,3 +1,9 @@
+/**
+ * Hard output question.
+ * Author: Ofir Pele.
+ * Since: 2017
+ */
+
 #include <iostream>
 using namespace std;
 

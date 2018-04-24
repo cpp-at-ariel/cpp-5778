@@ -22,7 +22,7 @@ int main() {
 
 	try {
 		board1[{3,4}]='O';   // This should raise an exception
-	} catch (IllegalCoordinateException ex) {
+	} catch (const IllegalCoordinateException& ex) {
 		cout << "Illegal coordinate: " << ex.theCoordinate() << endl;  // prints "Illegal coordinate: 3,4"
 	}
 
@@ -30,13 +30,13 @@ int main() {
 	cout << board1 << endl;  /* Shows an empty board, as above */
 	try { 
 		board1 = 'a';        // This should raise an exception
-	} catch (IllegalCharException ex) {
+	} catch (const IllegalCharException& ex) {
 		cout << "Illegal char: " << ex.theChar() << endl;  // "Illegal char: a"
 	}
 
 	try {
 		board1[{0,1}] = 'x';  // This should raise an exception
-	} catch (IllegalCharException ex) {
+	} catch (const IllegalCharException& ex) {
 		cout << "Illegal char: " << ex.theChar() << endl;  // "Illegal char: x"
 	}
 
