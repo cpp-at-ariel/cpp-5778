@@ -32,16 +32,36 @@ Complex operator"" _i(long double x) {
 	return Complex(0,(double)x);
 }
 
+int operator"" _h(unsigned long long hours) {
+	return hours*3600;
+}
+
+int operator"" _m(unsigned long long hours) {
+	return hours*60;
+}
+
+int operator"" _s(unsigned long long hours) {
+	return hours;
+}
+
+
+
+
 int main() {
 	Complex c {3,5}, d {4,6};
 	cout << "c = " << c << endl;
 	cout << "d = " << d << endl;
 	cout << "c+d = " << c+d << endl;
 
-	cout << "4+5i = " << (4.0+5.0_i) << endl;
+	cout << "4+5i = " << (4.0 + 5.0_i) << endl;
 
-	Complex e = c + (6.0+7.0_i);
+	Complex e = c + (6.0 + 7.0_i);
 	cout << "e = " << e << endl;
+
+	//cout << typeid("abc").name() << " " << typeid("abc"s).name() << endl;
+
+	int timeInSeconds = 1_h + 30_m + 12_s;
+	cout << timeInSeconds << endl;
 }
 
 

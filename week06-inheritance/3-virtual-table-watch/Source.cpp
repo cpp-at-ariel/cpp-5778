@@ -8,7 +8,7 @@ CBaseClass::CBaseClass()
 
 void CBaseClass::function_1()
 {
-	std::cout << "inside CDerivedClass::function_1";
+	std::cout << "inside CBaseClass::function_1";
 }
 
 CDerivedClass::CDerivedClass()

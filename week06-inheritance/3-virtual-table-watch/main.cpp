@@ -3,4 +3,6 @@
 int main()
 {
 	CGrandsonClass cGrandObj;
+	CBaseClass* p = &cGrandObj;
+	p->function_1();
 }

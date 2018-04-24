@@ -40,12 +40,23 @@ private:
 	MyClass _myObj;
 };
 
+
+Base operator-(const Base& b) {
+	return Base(-5);
+}
+
+Derived operator-(const Derived& b) {
+	return Derived(-7,-9);
+}
+
+
 int main()
 {
 	cout << endl << "---" << endl;
 	Derived d1;
 	d1.output(cout);
 	cout << endl << "---" << endl;
+
 
 	Derived d2(6, 8);
 	d2.output(cout);
@@ -66,4 +77,11 @@ int main()
 	Base* b3p = new Derived(7,9);
 	b3p->output(cout);
 	cout << endl << "---" << endl;
+
+
+	Base b10(10);
+	(-b10).output(cout);
+	cout << endl << "---" << endl;
+	Derived d10(10,20);
+	(-d10).output(cout);
 }
