@@ -25,7 +25,7 @@ public:
 	//Fraction(int nn): nom(nn), den(1) { }
 
 	Fraction&	operator++();   	//prefix - ++a
-	Fraction 	operator++(int); 	//postfix - a++
+	Fraction 	operator++(int postfix_flag); 	//postfix - a++
 private:
 	//operations
 	int 	gcd(int i, int j);
