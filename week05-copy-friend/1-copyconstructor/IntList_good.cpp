@@ -39,7 +39,7 @@ class IntList {
             }
             
             for (uint i=0; i<numInts; ++i)
-                    theInts[i] = other.theInts[i];
+                theInts[i] = other.theInts[i];
             return *this;
         }
 

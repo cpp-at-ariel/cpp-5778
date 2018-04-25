@@ -32,7 +32,13 @@ public:
 	friend ostream& operator<<(ostream& os, const Fraction& frac);
 	friend Fraction sqrt(const Fraction& f);
 	friend const Fraction operator+ (const Fraction& a, const Fraction& other);
-	//operator char() const { return 'a'; }
+
+	const Fraction operator- (const Fraction& other) const {
+		int nn = nom * other.den -
+			den * other.nom;
+		int dd = den * other.den;
+		return Fraction(nn, dd);
+	}
 };
 
 const Fraction operator+ (const Fraction& a, const Fraction& other) {

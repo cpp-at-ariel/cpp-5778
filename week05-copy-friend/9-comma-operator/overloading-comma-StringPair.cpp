@@ -28,11 +28,21 @@ StringPair operator, (string ii, string jj) {
 	return StringPair(ii,jj);
 }
 
+string operator, (string ii, StringPair jj) {
+	return "Operator, on string,StringPair"s;
+}
+
+string operator, (StringPair jj, string ii) {
+	return "Operator, on StringPair,string"s;
+}
+
 StringPair operator+(StringPair a, StringPair b) {
 	return StringPair(a.i+b.i, a.j+b.j);
 }
 
 int main() {
-	cout << ("aa"s,"bb"s) + ("cc"s,"dd"s) << endl;
+	cout << (string{"aa"} , "bb"s) + ("cc"s , "dd"s) << endl;
+	cout << ("ee", "ff") << endl;
+	cout << ("gg"s, "hh"s, "ii"s) << endl;
 	return 0;
 }

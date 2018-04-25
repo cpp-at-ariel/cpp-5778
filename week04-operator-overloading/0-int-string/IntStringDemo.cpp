@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 string operator* (int n, string s){ 
@@ -40,6 +41,13 @@ ostream& operator<< (ostream& os, string s) {
     return os;
 }
 
+int operator+(const vector<int>& y, int x) {
+    int sum = x;
+    for (int i=0; i<y.size(); ++i)
+        sum += y[i];
+    return sum;
+}
+
 int main() {
     string x="abc", y="def";
     cout << 3 * x << endl;
@@ -50,5 +58,9 @@ int main() {
 
     cout << (x * 3) << endl;
     //cout << operator*(x,3) << endl;
+
+    cout << (vector<int>{1,2,3} + 5) << endl;
+    //cout << ({1,2,3} + 5) << endl;
+    
     return 0;
 }

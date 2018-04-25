@@ -9,6 +9,14 @@ public:
 	~MyClass() { cout << "MyClass dtor\n"; }
 };
 
+class OtherClass
+{
+public:
+	OtherClass() { cout << "OtherClass:default\n"; }
+	OtherClass(int x) { cout << "OtherClass::int\n"; }
+	~OtherClass() { cout << "OtherClass dtor\n"; }
+};
+
 
 class Base
 {
@@ -25,10 +33,11 @@ class Derived : public Base
 public:
 	Derived() { cout << "Derived::default\n"; }
 	Derived(int i, int j) : _myObj(0), Base(i), _varj(j) { cout << "Derived:: int int\n"; }
-	~Derived() { cout << "Derived dtor\n"; }
+	~Derived() { cout << "---\nDerived dtor\n"; }
 private:
 	int _varj;
 	MyClass _myObj;
+	OtherClass _otherObj;
 };
 
 int main()
