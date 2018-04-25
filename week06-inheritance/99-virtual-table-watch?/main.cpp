@@ -1,3 +1,9 @@
+/**
+ * Virtual Table Watch.
+ * Author: Ofir Pele.
+ * Since: 2017.
+ */
+
 #include "Header.h"
 
 int main()

@@ -1,3 +1,9 @@
+/**
+ * Virtual Table Watch.
+ * Author: Ofir Pele.
+ * Since: 2017.
+ */
+
 #ifndef __VIRTUALTABLEWATCH_H__
 #define	__VIRTUALTABLEWATCH_H__	
 
