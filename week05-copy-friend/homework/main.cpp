@@ -50,6 +50,8 @@ int main() {
 	cout << board2 << endl;  /* Shows a board with an X at top-left */
 	cout << board1 << endl;  /* Shows a board with an X at top-left and O at bottom-right */
 
+	cout << "Good bye!" << endl;
+
 	return 0;
 }
 
