@@ -7,5 +7,6 @@ class Point {
 
 int main() {
 	Point* array = new Point[1000];
+	//delete[] array;
 	return 0;
 }
