@@ -31,6 +31,5 @@ int main() {
 
     l0[3] = 123;
     cout << "l0[abc] = " << l0["abc"] << endl;
-
     return 0;
 }

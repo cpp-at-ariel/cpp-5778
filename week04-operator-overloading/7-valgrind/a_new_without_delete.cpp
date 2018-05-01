@@ -1,3 +1,11 @@
+class Point {
+	int x, y;
+	virtual void f() {}
+	virtual void g() {}
+	virtual void h() {}
+};
+
 int main() {
-	int* array = new int[1000];
+	Point* array = new Point[1000];
+	return 0;
 }

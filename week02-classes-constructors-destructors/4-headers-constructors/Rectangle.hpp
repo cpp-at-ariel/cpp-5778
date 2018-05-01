@@ -1,3 +1,4 @@
+#pragma once
 // This file demonstrates the importance of "pragma once".
 
 #include "Point.hpp"
