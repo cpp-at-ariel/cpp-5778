@@ -1,8 +1,8 @@
 class Point {
 	int x, y;
-	virtual void f() {}
-	virtual void g() {}
-	virtual void h() {}
+	void f() { x=5; }
+	void g() { y=x*x; }
+	void h() { x=y+x; }
 };
 
 int main() {
