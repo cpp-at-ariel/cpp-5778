@@ -10,19 +10,20 @@
 
 #include <iostream>
 #include <fstream>
+#include <cmath>
 using namespace std;
 
 int main() {
   const int dimx = 800, dimy = 800;
-  ofstream imageFile("cpp.ppm", ios::out | ios::binary);
+  ofstream imageFile("myimage.ppm", ios::out | ios::binary);
   imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
   for (int j = 0; j < dimy; ++j)  {
     for (int i = 0; i < dimx; ++i) {
       char color[3];
       color[0] = i % 256;  /* red */
       color[1] = j % 256;  /* green */
-      color[2] = (i + j) % 256;  /* blue */
-	  imageFile << color[0] << color[1] << color[2];
+      color[2] = int(256*sin(i/5+j/5)) % 256;  /* blue */
+	    imageFile << color[0] << color[1] << color[2];
     }
   }
   imageFile.close();

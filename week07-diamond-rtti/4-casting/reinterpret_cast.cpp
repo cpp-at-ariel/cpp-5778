@@ -59,7 +59,7 @@ int main()
 
 		dp = reinterpret_cast<Derived*>(bp);  //  same garbage
 		dp->print();
-		dp = reinterpret_cast<Derived*>(new Base);  //  Garbage like static_cast
+		dp = reinterpret_cast<Derived*>(new Base);  //  555 garbage
 		dp->print();
 		dp = reinterpret_cast<Derived*>(new Unrelated);  // garbage
 		dp->print();

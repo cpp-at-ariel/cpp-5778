@@ -28,13 +28,16 @@ int main() {
   RGB image[dimx*dimy];
   for (int j = 0; j < dimy; ++j)  {  // row
     for (int i = 0; i < dimx; ++i) { // column
-      image[dimx*j+i] = {
+      image[dimx*j+i] = RGB{
         static_cast<uint8_t>(i % 256), // red
         static_cast<uint8_t>(j % 256), // green
-        static_cast<uint8_t>((i*i/2+j*j/2) % 256) // blue
+        static_cast<uint8_t>((i*i+j*j) % 256) // blue
       };
     }
   }
+  ///
+  ///
+  ///
   imageFile.write(reinterpret_cast<char*>(&image), 3*dimx*dimy);
   imageFile.close();
   return 0;
