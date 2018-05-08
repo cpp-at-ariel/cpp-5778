@@ -1,3 +1,10 @@
+/**
+ * A template stack class.
+ * 
+ * AUTHOR: Ofir Pele
+ * SINCE : 2017
+ */
+
 #pragma once
 
 template<typename T>
@@ -89,7 +96,7 @@ public:
 			advance_m_pointer();
 			return *this;
 		}
-		
+
 		const iterator operator++(int) {
 			iterator tmp= *this;
 			advance_m_pointer();
