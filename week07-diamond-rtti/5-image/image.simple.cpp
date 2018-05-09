@@ -11,21 +11,25 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 int main() {
   const int dimx = 800, dimy = 800;
-  ofstream imageFile("myimage.ppm", ios::out | ios::binary);
-  imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
-  for (int j = 0; j < dimy; ++j)  {
-    for (int i = 0; i < dimx; ++i) {
-      char color[3];
-      color[0] = i % 256;  /* red */
-      color[1] = j % 256;  /* green */
-      color[2] = int(256*sin(i/5+j/5)) % 256;  /* blue */
-	    imageFile << color[0] << color[1] << color[2];
+  for (int offset=0; offset<800; offset+=1) {  
+    ofstream imageFile("/home/erelsgl/Desktop/myimage1.ppm");
+    imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
+    for (int j = 0; j < dimy; ++j)  {
+      for (int i = 0; i < dimx; ++i) {
+        char red =   i % 256;
+        char green = j % 256;
+        char blue = (offset*i+j)%256;//0;//int(64*sin(i)+256*cos(j))%256;  /* blue */
+        imageFile << red << green << blue;
+      }
     }
+    imageFile.close();
+    this_thread::sleep_for(chrono::seconds(1));
   }
-  imageFile.close();
   return 0;
 }

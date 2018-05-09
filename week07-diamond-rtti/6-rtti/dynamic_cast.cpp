@@ -6,17 +6,14 @@ struct Base1 {
 	int i=111;
 	void print() { cout << i << endl; }
 };
-
 struct Derived1: public Base1 {
 	char c='a';
 	void print() { cout << i << " " << c << endl; }
 };
-
 struct Base2 {
 	double i=222;
 	virtual void print() { cout << i << endl; }
 };
-
 struct Derived2: public Base2 {
 	char c='b';
 	void print() { cout << i << " " << c << endl; }
@@ -70,16 +67,28 @@ int main()
 		Base2* bp2b = new Base2;
 
 		if (Derived2* dp2a = dynamic_cast<Derived2*>(bp2a)) {
-			cout << "dp2a points to a Derived2! " << endl;
+			cout << "bp2a points to a Derived2! " << endl;
 		} else {
-			cout << "dp2a does NOT point to a Derived2! " << endl;
+			cout << "bp2a does NOT point to a Derived2! " << endl;
 		}
 		if (Derived2* dp2b = dynamic_cast<Derived2*>(bp2b)) {
-			cout << "dp2b points to a Derived2! " << endl;
+			cout << "bp2b points to a Derived2! " << endl;
 		} else {
-			cout << "dp2b does NOT point to a Derived2! " << endl;
+			cout << "bp2b does NOT point to a Derived2! " << endl;
 		}
 	}
+
+
+	/*{
+		Base1* bp1a = new Derived1;
+		Base1* bp1b = new Base1;
+
+		if (Derived1* dp1a = dynamic_cast<Derived1*>(bp1a)) {
+			cout << "bp1a points to a Derived1! " << endl;
+		} else {
+			cout << "bp1a does NOT point to a Derived1! " << endl;
+		}
+	}*/
 
 	{
 		// Dynamic cast with references
@@ -105,15 +114,15 @@ int main()
 
 		try {
 			Derived2& dp2a = dynamic_cast<Derived2&>(bp2a);
-			cout << "dp2a references a Derived2! " << endl;
+			cout << "bp2a references a Derived2! " << endl;
 		} catch (bad_cast e) {
-			cout << "dp2a does NOT reference a Derived2! " << endl;
+			cout << "bp2a does NOT reference a Derived2! " << endl;
 		}
 		try {
 			Derived2& dp2b = dynamic_cast<Derived2&>(bp2b);
-			cout << "dp2b references a Derived2! " << endl;
+			cout << "bp2b references a Derived2! " << endl;
 		} catch (bad_cast e) {
-			cout << "dp2b does NOT reference a Derived2! " << endl;
+			cout << "bp2b does NOT reference a Derived2! " << endl;
 		}
 	}
 }

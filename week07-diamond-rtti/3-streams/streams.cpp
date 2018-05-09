@@ -21,29 +21,34 @@ string to_string(const Complex& c) {
 	return s.str();
 }
 
-int main() {	
-	ostringstream s;
+int main() {
+	// cout << "The result is 2" << endl;
+	// cerr << "There is a bug" << endl;
+
+	ostringstream sout;
 	Complex c{2,3};
-	s << 1 << " " << c;
-	assert(s.str().compare("1 2+3i")==0);
-	cout << s.str() << endl;
+	sout << 1 << " " << c << " ";
+	assert(sout.str().compare("1 2+3i ")==0);
+	cout << sout.str() << endl;
+	ofstream fout("abc.txt");
+	fout << 1 << " " << c << endl;
 
-	ofstream f("abc.txt");
-	f << 1 << " " << c << endl;
-
-	stringstream s2("12 aa bcd");
-	int i; string a; 
-	s2 >> i >> a;
+	stringstream sinout("12 aa bcd");
+	int i, j; string a; 
+	sinout >> i >> a;
+	cout << (sinout? "good": "bad") << endl;
+	cout << (!sinout? "bad": "good") << endl;
 	cout << "i = " << i << endl;
+	cout << "j = " << j << endl;
 	cout << "a = " << a << endl;
-	cout << s2.str() << endl;
-	s2 << "efg";
-	cout << s2.str() << endl;
+	cout << sinout.str() << endl;
+	sinout << "efg";
+	cout << sinout.str() << endl;
 
-	stringstream s3("12 a bcd\n34 b def\n56 C DFE");
+	stringstream s3("12 a, bcd\n34 b def\n56 C DFE");
 	char buffer[200];
-	s3.getline(buffer, 200, '\n');
-	cin.getline(buffer, 200, ',');
+	s3.getline(buffer, 200);
+	//cin.getline(buffer, 200, ',');
 	cout << "first line is " << buffer << endl;
 //	cout << "line1 = " << line1 << endl;
 

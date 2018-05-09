@@ -12,7 +12,7 @@
 #include <fstream>
 using namespace std;
 
-class RGB {
+struct RGB {
   uint8_t red, green, blue;
 public:
   RGB() {}
@@ -28,15 +28,16 @@ int main() {
   RGB image[dimx*dimy];
   for (int j = 0; j < dimy; ++j)  {  // row
     for (int i = 0; i < dimx; ++i) { // column
-      image[dimx*j+i] = RGB{
-        static_cast<uint8_t>(i % 256), // red
-        static_cast<uint8_t>(j % 256), // green
-        static_cast<uint8_t>((i*i+j*j) % 256) // blue
-      };
+      image[dimx*j+i].red = (i % 256);
+      image[dimx*j+i].green = (j % 256);
+      image[dimx*j+i].blue = ((i*i+j*j) % 256);
     }
   }
+  image[0].red = 255;
+  image[0].blue = 0;
+  image[0].green = 0;
   ///
-  ///
+  ///image processing
   ///
   imageFile.write(reinterpret_cast<char*>(&image), 3*dimx*dimy);
   imageFile.close();

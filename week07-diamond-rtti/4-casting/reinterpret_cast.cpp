@@ -20,6 +20,10 @@ struct Unrelated {
 
 int main()
 {	
+	Base* b11 = new Base;
+	Derived* d11 = (Derived*)b11;
+	cout << d11->i << " " << d11->c << endl;
+	//return 0;
 	{
 		double d=12.45;
 		// int j = reinterpret_cast<int>(d);  // compile error
