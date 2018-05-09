@@ -30,7 +30,7 @@ int main() {
     for (int i = 0; i < dimx; ++i) { // column
       image[dimx*j+i].red = (i % 256);
       image[dimx*j+i].green = (j % 256);
-      image[dimx*j+i].blue = ((i*i+j*j) % 256);
+      image[dimx*j+i].blue = ( (i*i+j*j) % 256);
     }
   }
   image[0].red = 255;
