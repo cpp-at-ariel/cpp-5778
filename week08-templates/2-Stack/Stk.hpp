@@ -1,5 +1,6 @@
 /**
  * A template stack class.
+ * Implemented as a linked list.
  * 
  * AUTHOR: Ofir Pele
  * SINCE : 2017
@@ -82,12 +83,10 @@ public:
 		}
 
 		// Note that the method is const as this operator does not
-		// allow changing of the iterator, that is what it points to.
+		// allow changing of the iterator.
 		// Note that it returns T& as it allows to change what it points to.
 		// A const_iterator class will return const T&
 		// and the method will still be const
-		//
-		// Usually iterators are passed by value and not by const& as they are small.
 		T& operator*() const {
 			return m_pointer->m_value;
 		}
@@ -97,6 +96,7 @@ public:
 			return *this;
 		}
 
+		// Usually iterators are passed by value and not by const& as they are small.
 		const iterator operator++(int) {
 			iterator tmp= *this;
 			advance_m_pointer();
@@ -116,7 +116,7 @@ public:
 		void advance_m_pointer() {
 			m_pointer= m_pointer->m_next;
 		}
-	};
+	};  // END OF CLASS ITERATOR
 
 	iterator begin() {
 		return iterator(m_first);
@@ -128,11 +128,11 @@ public:
 	//-------------------------------------------------------------------
 
 	//-------------------------------------------------------------------
-	// generic ctor:
-	// template ctor inside a template class
+	// generic constructor:
+	// template constructor inside a template class!
 	//-------------------------------------------------------------------
-	template<typename CtorIterator>
-	Stk(CtorIterator begin, CtorIterator end) : m_first(nullptr) {
+	template<typename Iterator>
+	Stk(Iterator begin, Iterator end): m_first(nullptr) {
 		for (; begin!=end; ++begin) {
 			push(*begin);
 		}

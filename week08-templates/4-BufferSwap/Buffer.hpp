@@ -1,3 +1,11 @@
+/**
+ * A template Buffer class, with an efficient "myswap" method.
+ *
+ * AUTHOR: Ofir Pele
+ * SINCE : 2017
+ */
+
+
 #include <cassert>
 #include <cstdlib> // for size_t
 
