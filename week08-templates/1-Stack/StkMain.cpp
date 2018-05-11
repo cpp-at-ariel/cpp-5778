@@ -6,6 +6,8 @@ using namespace std;
 
 int main() {
 
+	/*** A stack of strings ***/
+
 	string str1("Hello ");
 	string str2("world !\n");
 
@@ -29,9 +31,13 @@ int main() {
 		cout << val;
 	}
 
+
+	/*** A stack of ints ***/
+
 	int arr[]= {43, 21, -22};
 	// Calling templated ctor, old C++ style
 	Stk<int> intStk(arr, arr+sizeof(arr)/sizeof(*arr));
+
 	// Calling templated ctor, C++-11 style
 	Stk<int> intStk2(begin(arr), end(arr));
 	for (const auto& val : intStk) {
