@@ -11,6 +11,11 @@
 class XYPlayer: public Player {
 public:
 	const string name() const override { return "XYPlayer"; }
+
+	/**
+	 * Selects a single place to put my symbol, given the current board.
+	 * Defines the strategy of the player.
+	 */
 	const Coordinate play(const Board& board) override;
 };
 
