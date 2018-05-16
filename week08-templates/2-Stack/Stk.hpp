@@ -75,6 +75,12 @@ public:
 	// inner class and methods that return instances of it)
 	//-------------------------------------------------------------------
 	class iterator {
+		
+	  private:
+		Node* m_pointer;
+		void advance_m_pointer() {
+			m_pointer= m_pointer->m_next;
+		}
 
 	public:
 
@@ -109,12 +115,6 @@ public:
 
 		bool operator!=(const iterator& rhs) const {
 			return m_pointer != rhs.m_pointer;
-		}
-		
-	  private:
-		Node* m_pointer;
-		void advance_m_pointer() {
-			m_pointer= m_pointer->m_next;
 		}
 	};  // END OF CLASS ITERATOR
 

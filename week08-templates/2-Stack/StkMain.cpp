@@ -40,14 +40,17 @@ int main() {
 
 	// Calling templated ctor, C++-11 style
 	Stk<int> intStk2(begin(arr), end(arr));
-	for (const auto& val : intStk) {
+	for (const auto& val: intStk) {
 		cout << val << " ";
 	}
 	cout << endl;
-	for (const auto& val : intStk2) {
+	for (const auto& val: intStk2) {
+		cout << typeid(val).name();
 		cout << val << " ";
 	}
 	cout << endl;
+
+	Stk<int> intStk3 (intStk.begin(), intStk.end());
 	
 	// Remark: C++-11 allows also to write classes that have {} constructors:
 	// Stk<int> intStk3{43, 21, -22};
