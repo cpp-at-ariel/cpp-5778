@@ -25,8 +25,8 @@ struct Picture {
 			pixels[i]=color;
 	}
 
-	template<typename Function> void plot(Function f, double fromX, double toX, int steps, double fromY, double toY, RGB color) {
-		double stepX = (toX - fromX)/steps;
+	template<typename Function> void plot(Function f, double fromX, double toX, int stepsX, double fromY, double toY, RGB color) {
+		double stepX = (toX - fromX)/stepsX;
 		for (double x=fromX; x<=toX; x+=stepX) {
 			double y = f(x);
 			int col = (x-fromX)/(toX-fromX)*dimx;

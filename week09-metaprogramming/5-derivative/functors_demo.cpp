@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-#include "Picture.h"
+#include "rgb.hpp"
 
 struct Sine {
 	double coefficient;
