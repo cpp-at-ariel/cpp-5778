@@ -25,7 +25,12 @@ struct Picture {
 			pixels[i]=color;
 	}
 
-	template<typename Function> void plot(Function f, double fromX, double toX, int stepsX, double fromY, double toY, RGB color) {
+	template<typename Function> void plot(
+		Function f, 
+		double fromX, double toX, int stepsX, 
+		double fromY, double toY, 
+		RGB color) {
+
 		double stepX = (toX - fromX)/stepsX;
 		for (double x=fromX; x<=toX; x+=stepX) {
 			double y = f(x);

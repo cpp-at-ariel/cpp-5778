@@ -189,6 +189,10 @@ TEST(Buffer, iteratorTest) {
 		}
 		string str= sstr.str();
 		EXPECT_EQ(str, expected_str);
+
+		Buffer<int> b1(100);
+		Buffer<int> b2(200);
+		myswap(b1,b2);
 	}
 }
 

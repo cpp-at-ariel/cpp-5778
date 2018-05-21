@@ -101,16 +101,19 @@ class nth_derivative
 template <typename Function, typename Number, unsigned N>
 class nth_derivative
 {
-    using prev_derivative= nth_derivative<Function, Number, N-1>;
+    using prev_derivative = 
+        nth_derivative<Function, Number, N-1>;
   public:
     nth_derivative(const Function& f, const Number& h) : h(h), fp(f, h) {}
 
     Number operator()(const Number& x) const {
-        return N & 1 ? ( fp(x+h) - fp(x) ) / h 
-                    : ( fp(x) - fp(x-h) ) / h;
+        return N & 1 ? 
+            ( fp(x+h) - fp(x) ) / h 
+                    : 
+            ( fp(x) - fp(x-h) ) / h;
     }
   private:
-    Number        h;
+    Number          h;
     prev_derivative fp;
 };
 
@@ -147,12 +150,12 @@ class nth_derivative
 
 #endif 
 
-#if 1
+#if 0
 template <typename Function, typename Number>
 class nth_derivative<Function, Number, 1>
 {
   public:
-    nth_derivative(const Function& f, const Number& h) : f(f), h(h) {}
+    nth_derivative(const Function& f, const Number& h): f(f), h(h) {}
 
     Number operator()(const Number& x) const
     {

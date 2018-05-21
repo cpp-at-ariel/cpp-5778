@@ -9,9 +9,9 @@
 #include <cassert>
 #include <cstdlib> // for size_t
 
-template<typename T>
-void myswap(T& a, T& b) {
-	T tmp= a;
+template<typename Data>
+void myswap(Data& a, Data& b) {
+	Data tmp= a;
 	a= b;
 	b= tmp;
 }

@@ -27,14 +27,14 @@ class vector
     vector(const vector& that)
       : my_size(that.my_size), data(new T[my_size])
     {
-	std::copy(&that.data[0], &that.data[that.my_size], &data[0]);
+    	std::copy(&that.data[0], &that.data[that.my_size], &data[0]);
     }
 
     vector& operator=(const vector& that) 
     {
-	check_size(that.my_size);
-	std::copy(&that.data[0], &that.data[that.my_size], &data[0]);
-	return *this;
+      check_size(that.my_size);
+      std::copy(&that.data[0], &that.data[that.my_size], &data[0]);
+      return *this;
     }
 
     int size() const { return my_size; }
@@ -77,7 +77,9 @@ std::ostream& operator<<(std::ostream& os, const vector<T>& v)
 class vector_bool_proxy
 {
   public:
-    vector_bool_proxy(unsigned char& byte, int p) : byte(byte), mask(1 << p) {}
+    vector_bool_proxy(unsigned char& byte, int p): 
+      byte(byte), 
+      mask(1 << p) {}
 
     operator bool() const { return byte & mask; }
 
@@ -100,12 +102,15 @@ class vector<bool>
 {
   public:
     explicit vector(int size)
-      : my_size(size), data(new unsigned char[(my_size+7) / 8])
+      : my_size(size), 
+      data(new unsigned char[(my_size+7) / 8])
     {}
 
     vector() : my_size(0) {}
   
-    bool operator[](int i) const { return (data[i/8] >> i%8) & 1; }
+    bool operator[](int i) const { 
+      return (data[i/8] >> i%8) & 1; 
+    }
 
     vector_bool_proxy operator[](int i) 
     { return {data[i/8], i%8};   }
@@ -142,10 +147,10 @@ int main() {
 
     vector<bool>  b(13);
     for (int i= 0; i < 13; i++)
-		b[i] = i & 1;
+		  b[i] = i & 1;
     std::cout << "b = " << b << std::endl;
     for (int i= 0; i < 13; i++)
-		std::cout << b[i];
+		  std::cout << b[i];
     std::cout << '\n';
 
     return 0;
