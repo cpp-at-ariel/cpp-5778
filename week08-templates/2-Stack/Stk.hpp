@@ -75,12 +75,9 @@ public:
 	// inner class and methods that return instances of it)
 	//-------------------------------------------------------------------
 	class iterator {
-		
+
 	  private:
 		Node* m_pointer;
-		void advance_m_pointer() {
-			m_pointer= m_pointer->m_next;
-		}
 
 	public:
 
@@ -97,15 +94,17 @@ public:
 			return m_pointer->m_value;
 		}
 
+		// ++i;
 		iterator& operator++() {
-			advance_m_pointer();
+			m_pointer= m_pointer->m_next;
 			return *this;
 		}
 
+		// i++;
 		// Usually iterators are passed by value and not by const& as they are small.
 		const iterator operator++(int) {
 			iterator tmp= *this;
-			advance_m_pointer();
+			m_pointer= m_pointer->m_next;
 			return tmp;
 		}
 
@@ -119,22 +118,38 @@ public:
 	};  // END OF CLASS ITERATOR
 
 	iterator begin() {
-		return iterator(m_first);
+		return iterator{m_first};
 	}
 	
 	iterator end() {
-		return iterator(nullptr);
+		return iterator{nullptr};
 	}
 	//-------------------------------------------------------------------
+
+/*
+	class reverse_iterator {
+		...
+	};
+
+	reverse_iterator rbegin() {
+
+	};
+
+	reverse_iterator rend() {
+
+	};
+*/
+
 
 	//-------------------------------------------------------------------
 	// generic constructor:
 	// template constructor inside a template class!
 	//-------------------------------------------------------------------
-	template<typename Iterator>
-	Stk(Iterator begin, Iterator end): m_first(nullptr) {
-		for (; begin!=end; ++begin) {
-			push(*begin);
+	template<typename XX>
+	Stk(XX b, XX e): 
+		m_first(nullptr) {
+		for (; b!=e; ++b) {
+			push(*b);
 		}
 	}
 	//-------------------------------------------------------------------

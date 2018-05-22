@@ -2,6 +2,11 @@
 using std::cout;
 using std::endl;
 
+template<typename T>
+T sum (T a, T b) {
+	return a+b;
+}
+
 template <typename T> void swap(T& a, T& b) {
 	cout << "swap Ts" << endl;
 	T tmp = a;
@@ -19,11 +24,13 @@ void swap (double& a, double& b) {
 class DontCopyMe {
 public:
 	DontCopyMe() {}
-private:
-	DontCopyMe(const DontCopyMe& other) {}
+	DontCopyMe(const DontCopyMe& other) = delete;
 };
 
 int main() {
+	cout << sum(5,6);
+	cout << sum(5.0,6.2);
+	//cout << sum("abc","def");
 	{
 		int a=4,b=5;
 		cout << a << " " << b << endl;

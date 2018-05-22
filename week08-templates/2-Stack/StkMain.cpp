@@ -23,20 +23,22 @@ int main() {
 	strStk.push(str2);
 	strStk.push(str1);
 	// Old C++ style
-	for (Stk<string>::iterator it= strStk.begin(); it!=strStk.end(); ++it) {
+	for (
+		Stk<string>::iterator it= strStk.begin(); 
+		it!=strStk.end(); 
+		++it) {
 		cout << *it;
 	}
 	// C++-11 style
-	for (const auto& val : strStk) {
+	for (const string& val: strStk) {
 		cout << val;
 	}
-
 
 	/*** A stack of ints ***/
 
 	int arr[]= {43, 21, -22};
 	// Calling templated ctor, old C++ style
-	Stk<int> intStk(arr, arr+sizeof(arr)/sizeof(*arr));
+	Stk<int> intStk(arr, arr+3);
 
 	// Calling templated ctor, C++-11 style
 	Stk<int> intStk2(begin(arr), end(arr));
