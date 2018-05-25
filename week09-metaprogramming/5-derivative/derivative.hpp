@@ -98,13 +98,23 @@ class nth_derivative
 
 #else
 
+//using Coordinate=vector<int>;
+//typedef vector<int> Coordinate;
+
 template <typename Function, typename Number, unsigned N>
 class nth_derivative
 {
     using prev_derivative = 
         nth_derivative<Function, Number, N-1>;
+
+  private:
+    Number          h;
+    prev_derivative fp;   // (N-1)-th derivative of f
+        
   public:
-    nth_derivative(const Function& f, const Number& h) : h(h), fp(f, h) {}
+    nth_derivative(const Function& f, const Number& h): 
+        h(h), 
+        fp(f, h) {}      // Set fp to (N-1)-th derivative of f
 
     Number operator()(const Number& x) const {
         return N & 1 ? 
@@ -112,9 +122,6 @@ class nth_derivative
                     : 
             ( fp(x) - fp(x-h) ) / h;
     }
-  private:
-    Number          h;
-    prev_derivative fp;
 };
 
 

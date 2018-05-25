@@ -55,7 +55,6 @@ public:
 	Buffer(const Buffer& other) :
 		_buf(getMemory(other.size())),
 		_size(other.size())	{
-		
 		copyVals(other);
 
 	}
@@ -117,7 +116,7 @@ public:
 	//---------------------------------------------------------
 	// efficiently swapping 
 	//---------------------------------------------------------
-	void myswap(Buffer& other) {
+	void efficient_swap(Buffer& other) {
 		::myswap(_buf, other._buf);
 		::myswap(_size, other._size);
 	}
@@ -129,7 +128,7 @@ public:
 template<typename T>
 void myswap(Buffer<T>& b1, Buffer<T>& b2) {
 	std::cout << "Special swap" << std::endl;
-	b1.myswap(b2);
+	b1.efficient_swap(b2);
 }
 //---------------------------------------------------------
 

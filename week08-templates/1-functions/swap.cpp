@@ -48,6 +48,6 @@ int main() {
 	}
 	{
 		DontCopyMe a, b;
-		swap(a,b);     // compiler error
+		//swap(a,b);     // compiler error
 	}
 }

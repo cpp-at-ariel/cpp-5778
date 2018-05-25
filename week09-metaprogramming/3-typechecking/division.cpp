@@ -21,6 +21,8 @@ template <> struct DivideProperties<double,double> {
 		CanDivideByZero=true;
 }; 
 
+class divide_by_zero{};
+
 template <typename TNom, typename TDen, typename TRes > 
 void SafeDiv(const TNom& nom, const TDen& den, TRes& res) {
 	// static_assert only in c++11 (supported in current compilers)
@@ -30,7 +32,7 @@ void SafeDiv(const TNom& nom, const TDen& den, TRes& res) {
 
 	if (!DivideProperties<TNom,TDen>::CanDivideByZero)  {
 		if(den==0) {
-			throw "Division by zero!";
+			throw divide_by_zero{};
 		}
 	}
 

@@ -25,8 +25,10 @@ struct Picture {
 			pixels[i]=color;
 	}
 
+	void plotYAxis() {/* matala */}
+
 	template<typename Function> void plot(
-		Function f, 
+		Function f, // Must have operator() (double)
 		double fromX, double toX, int stepsX, 
 		double fromY, double toY, 
 		RGB color) {

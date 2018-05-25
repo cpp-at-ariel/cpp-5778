@@ -69,11 +69,17 @@ template <typename T>
 std::ostream& operator<<(std::ostream& os, const vector<T>& v)
 {
   os << '[';
-  for (int i= 0; i < v.size(); ++i) os << v[i] << ',';
+  for (int i= 0; i < v.size(); ++i) 
+    os << v[i] << ',';
   os << ']';
   return os;
 }
 
+
+/**
+ * Represents a reference to a single bit 
+ *    inside a char.
+ */
 class vector_bool_proxy
 {
   public:
@@ -85,10 +91,10 @@ class vector_bool_proxy
 
     vector_bool_proxy& operator=(bool b) 
     { 
-        if (b)
-            byte|= mask;
-        else
-            byte&= ~mask;
+        if (b==true)
+            byte |= mask;
+        else // b==false
+            byte &= ~mask;
         return *this; 
     }
 
@@ -147,7 +153,7 @@ int main() {
 
     vector<bool>  b(13);
     for (int i= 0; i < 13; i++)
-		  b[i] = i & 1;
+		  b[i] = i % 3;
     std::cout << "b = " << b << std::endl;
     for (int i= 0; i < 13; i++)
 		  std::cout << b[i];

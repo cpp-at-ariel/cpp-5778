@@ -17,14 +17,14 @@ int main()
 
 	Picture pic(300,300);
 	pic.setBackground({255,255,0});
-	pic.plot([](double){return 0;}, -4.0,4.0,1200,  -2.1,2.1, {0,0,0});
+	pic.plot( [](double){return 0;} , -4.0,4.0,1200,  -2.1,2.1, {0,0,0});
 
     paramSinCosFunctor paramSinCos_o(0.5);
 
     auto baseFunction = 
-        //paramSinCos_o;
+        paramSinCos_o;
         //[](double x) {return x*x*x/3;};
-        _1 * _1 * _1 / 3 + 1;
+        //_1 * _1 * _1 / 3 + 1;
         //[](double x) {return std::abs(x);};
 
 	pic.plot(baseFunction, -7.0,7.0,1200,  -2.1,2.1, {0,0,255});
