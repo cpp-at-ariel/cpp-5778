@@ -30,7 +30,7 @@ public:
 int main() {
 	cout << sum(5,6);
 	cout << sum(5.0,6.2);
-	//cout << sum("abc","def");
+	cout << sum("abc","def");
 	{
 		int a=4,b=5;
 		cout << a << " " << b << endl;
