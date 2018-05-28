@@ -3,6 +3,7 @@
  * 
  * Author: Peter Gottschling
  * Url: https://github.com/petergottschling/discovering_modern_cpp/blob/master/c%2B%2B11/derivative.cpp
+ * Shortened by: Erel Segal-Halevi
  */
 
 #include <cmath>
@@ -20,6 +21,9 @@ struct SinCosFunctor {
 };
 
 
+/**
+ * A class for parametric sin-cos function objects.
+ */
 class paramSinCosFunctor {
   public:
     paramSinCosFunctor(double alpha) : alpha(alpha) {}
@@ -31,68 +35,52 @@ class paramSinCosFunctor {
 };
 
 #if 0 
-// with function pointers
+// We could do derivative with function pointers
 double fin_diff(double f(double), double x, double h) 
 {
     return ( f(x+h) - f(x) ) / h;
 }
 #endif
 
-template <typename Function, typename Number>
-inline Number fin_diff(Function f, const Number& x, const Number& h) {
+template <typename Function>
+inline  double fin_diff(Function f, const  double& x, const  double& h) {
     return ( f(x+h) - f(x) ) / h;
 }
 
-template <typename Function, typename Number>
+template <typename Function>
 class derivative
 {
   public:
-    derivative(const Function& f, const Number& h) : f(f), h(h) {}
+    derivative(const Function& f, const  double& h) : f(f), h(h) {}
 
-    Number operator()(const Number& x) const {
+     double operator()(const  double& x) const {
 	    return ( f(x+h) - f(x) ) / h;
     }
   private:
     const Function& f;
-    Number        h;
+     double        h;
 };
 
-template<typename Function, typename Number> 
-auto derive(const Function& f, const Number& h) {
-    return derivative<Function,Number>(f,h);
+template<typename Function> 
+auto derive(const Function& f, const  double& h) {
+    return derivative<Function, double>(f,h);
 }
 
 
-template <typename Function, typename Number>
-class second_derivative
-{
-  public:
-    second_derivative(const Function& f, const Number& h): 
-        h(h), fp(f, h) {}
-
-    Number operator()(const Number& x) const
-    {
-	    return ( fp(x+h) - fp(x) ) / h;
-    }    
-  private:
-    Number        h;
-    derivative<Function, Number> fp;
-};
-
 #if 0
-template <typename Function, typename Number, unsigned N>
+template <typename Function, unsigned N>
 class nth_derivative
 {
-    using prev_derivative= nth_derivative<Function, Number, N-1>;
+    using prev_derivative= nth_derivative<Function,  double, N-1>;
   public:
-    nth_derivative(const Function& f, const Number& h) : h(h), fp(f, h) {}
+    nth_derivative(const Function& f, const  double& h) : h(h), fp(f, h) {}
 
-    Number operator()(const Number& x) const
+     double operator()(const  double& x) const
     {
 	return ( fp(x+h) - fp(x) ) / h;
     }    
   private:
-    Number        h;
+     double        h;
     prev_derivative fp;
 };
 
@@ -101,22 +89,22 @@ class nth_derivative
 //using Coordinate=vector<int>;
 //typedef vector<int> Coordinate;
 
-template <typename Function, typename Number, unsigned N>
+template <typename Function, unsigned N>
 class nth_derivative
 {
     using prev_derivative = 
-        nth_derivative<Function, Number, N-1>;
+        nth_derivative<Function,  double, N-1>;
 
   private:
-    Number          h;
+     double          h;
     prev_derivative fp;   // (N-1)-th derivative of f
         
   public:
-    nth_derivative(const Function& f, const Number& h): 
+    nth_derivative(const Function& f, const  double& h): 
         h(h), 
         fp(f, h) {}      // Set fp to (N-1)-th derivative of f
 
-    Number operator()(const Number& x) const {
+     double operator()(const  double& x) const {
         return N & 1 ? 
             ( fp(x+h) - fp(x) ) / h 
                     : 
@@ -126,31 +114,31 @@ class nth_derivative
 
 
 #if 0 // for meta-programming, maybe
-template <typename Function, typename Number, unsigned N>
+template <typename Function, unsigned N>
 class nth_derivative
 {
-    using prev_derivative= nth_derivative<Function, Number, N-1>;
+    using prev_derivative= nth_derivative<Function,  double, N-1>;
   public:
-    nth_derivative(const Function& f, const Number& h) : h(h), fp(f, h) {}
+    nth_derivative(const Function& f, const  double& h) : h(h), fp(f, h) {}
 
-    Number operator()(const Number& x) const
+     double operator()(const  double& x) const
     {
 	return diff(x, boost::mpl::bool_<N & 1>());
     }
 	
   private:
 
-    Number diff(const Number& x, boost::mpl::true_) const
+     double diff(const  double& x, boost::mpl::true_) const
     {
 	return ( fp(x+h) - fp(x) ) / h;
     }    
 
-    Number diff(const Number& x, boost::mpl::false_) const
+     double diff(const  double& x, boost::mpl::false_) const
     {
 	return ( fp(x) - fp(x-h) ) / h;
     }    
 
-    Number        h;
+     double        h;
     prev_derivative fp;
 };
 #endif
@@ -158,50 +146,50 @@ class nth_derivative
 #endif 
 
 #if 0
-template <typename Function, typename Number>
-class nth_derivative<Function, Number, 1>
+template <typename Function>
+class nth_derivative<Function,  double, 1>
 {
   public:
-    nth_derivative(const Function& f, const Number& h): f(f), h(h) {}
+    nth_derivative(const Function& f, const  double& h): f(f), h(h) {}
 
-    Number operator()(const Number& x) const
+     double operator()(const  double& x) const
     {
 	    return ( f(x+h) - f(x) ) / h;
     }   
   private:
     const Function& f;
-    Number        h;
+     double        h;
 };
 #else
-template <typename Function, typename Number>
-class nth_derivative<Function, Number, 1>
-  : public derivative<Function, Number>
+template <typename Function>
+class nth_derivative<Function,  double, 1>
+  : public derivative<Function,  double>
 {
-    using derivative<Function, Number>::derivative;
+    using derivative<Function,  double>::derivative;
 
   // public:
-  //   nth_derivative(const Function& f, const Number& h) : derivative<Function, Number>(f, h) {}
+  //   nth_derivative(const Function& f, const  double& h) : derivative<Function,  double>(f, h) {}
 };
 #endif 
 
 
 #if 0
-template <typename Function, typename Number, unsigned N> // Not clever
-nth_derivative<Function, Number, N> 
-make_nth_derivative(const Function& f, const Number& h)
+template <typename Function, unsigned N> // Not clever
+nth_derivative<Function,  double, N> 
+make_nth_derivative(const Function& f, const  double& h)
 {
-    return nth_derivative<Function, Number, N>(f, h);
+    return nth_derivative<Function,  double, N>(f, h);
 }
 #endif
 
 
 
 
-template <unsigned N, typename Function, typename Number>
-nth_derivative<Function, Number, N> 
-make_nth_derivative(const Function& f, const Number& h)
+template <unsigned N, typename Function>
+nth_derivative<Function,  double, N> 
+make_nth_derivative(const Function& f, const  double& h)
 {
-    return nth_derivative<Function, Number, N>(f, h);
+    return nth_derivative<Function,  double, N>(f, h);
 }
 
 struct et {};
