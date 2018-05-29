@@ -103,13 +103,13 @@ int main(int argc, char **argv) {
    
 
 
-    // fstream fin(argv[1]);
-    // if (!fin) {
-    //     cerr << "File " << argv[1] << " not open" << endl;
-    //     return 1;
-    // }
-   
-    // fin >> c1;
+    fstream fin(argv[1]);
+    if (!fin) {
+         cerr << "File " << argv[1] << " not open" << endl;
+         return 1;
+    }
+
+    fin >> c1;
     // if (!fin) {
     //     if (fin.bad()) {
     //         cout << "Fatal error with stream, quiting" << endl;
