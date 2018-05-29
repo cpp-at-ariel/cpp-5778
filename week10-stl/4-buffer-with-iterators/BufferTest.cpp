@@ -189,12 +189,11 @@ TEST(Buffer, iteratorTest) {
 		}
 		string str= sstr.str();
 		EXPECT_EQ(str, expected_str);
-
-		Buffer<int> b1(100);
-		// fill b1 with ints
-		Buffer<int> b2(200);
-		// fill b1 with ints
-		myswap(b1,b2);
 	}
+
+
+	const Buffer<int> b99(99);
+	for (const int& val: b99)
+		std::cout << val;
 }
 

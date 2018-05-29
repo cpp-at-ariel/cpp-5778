@@ -50,20 +50,23 @@ inline  double fin_diff(Function f, const  double& x, const  double& h) {
 template <typename Function>
 class derivative
 {
-  public:
-    derivative(const Function& f, const  double& h) : f(f), h(h) {}
-
-     double operator()(const  double& x) const {
-	    return ( f(x+h) - f(x) ) / h;
-    }
   private:
     const Function& f;
-     double        h;
+    double        h;
+  public:
+    derivative(
+        const Function& f, 
+        const  double& h): 
+        f(f), h(h) {}
+
+    double operator()(const  double& x) const {
+	    return ( f(x+h) - f(x) ) / h;
+    }
 };
 
 template<typename Function> 
 auto derive(const Function& f, const  double& h) {
-    return derivative<Function, double>(f,h);
+    return derivative<Function>(f,h);
 }
 
 
@@ -71,7 +74,7 @@ auto derive(const Function& f, const  double& h) {
 template <typename Function, unsigned N>
 class nth_derivative
 {
-    using prev_derivative= nth_derivative<Function,  double, N-1>;
+    using prev_derivative= nth_derivative<Function,  N-1>;
   public:
     nth_derivative(const Function& f, const  double& h) : h(h), fp(f, h) {}
 
@@ -93,11 +96,11 @@ template <typename Function, unsigned N>
 class nth_derivative
 {
     using prev_derivative = 
-        nth_derivative<Function,  double, N-1>;
+        nth_derivative<Function,  N-1>;
 
   private:
      double          h;
-    prev_derivative fp;   // (N-1)-th derivative of f
+     prev_derivative fp;   // (N-1)-th derivative of f
         
   public:
     nth_derivative(const Function& f, const  double& h): 
@@ -117,7 +120,7 @@ class nth_derivative
 template <typename Function, unsigned N>
 class nth_derivative
 {
-    using prev_derivative= nth_derivative<Function,  double, N-1>;
+    using prev_derivative= nth_derivative<Function,  N-1>;
   public:
     nth_derivative(const Function& f, const  double& h) : h(h), fp(f, h) {}
 
@@ -147,7 +150,7 @@ class nth_derivative
 
 #if 0
 template <typename Function>
-class nth_derivative<Function,  double, 1>
+class nth_derivative<Function,  1>
 {
   public:
     nth_derivative(const Function& f, const  double& h): f(f), h(h) {}
@@ -162,23 +165,23 @@ class nth_derivative<Function,  double, 1>
 };
 #else
 template <typename Function>
-class nth_derivative<Function,  double, 1>
-  : public derivative<Function,  double>
+class nth_derivative<Function,  1>
+  : public derivative<Function>
 {
-    using derivative<Function,  double>::derivative;
+    using derivative<Function>::derivative;
 
   // public:
-  //   nth_derivative(const Function& f, const  double& h) : derivative<Function,  double>(f, h) {}
+  //   nth_derivative(const Function& f, const  double& h) : derivative<Function>(f, h) {}
 };
 #endif 
 
 
 #if 0
 template <typename Function, unsigned N> // Not clever
-nth_derivative<Function,  double, N> 
+nth_derivative<Function,  N> 
 make_nth_derivative(const Function& f, const  double& h)
 {
-    return nth_derivative<Function,  double, N>(f, h);
+    return nth_derivative<Function,  N>(f, h);
 }
 #endif
 
@@ -186,10 +189,10 @@ make_nth_derivative(const Function& f, const  double& h)
 
 
 template <unsigned N, typename Function>
-nth_derivative<Function,  double, N> 
+nth_derivative<Function,  N> 
 make_nth_derivative(const Function& f, const  double& h)
 {
-    return nth_derivative<Function,  double, N>(f, h);
+    return nth_derivative<Function,  N>(f, h);
 }
 
 struct et {};

@@ -1,17 +1,18 @@
 /**
- * A template Buffer class, with an efficient "myswap" method.
- *
- * AUTHOR: Ofir Pele
- * SINCE : 2017
+ * A template buffer with iterator
+ *   and const_iterator.
+ * 
+ * AUTHOR: Ofir Pele, 2017.
+ * 
+ * Modified by: Erel Segal-Halevi, 2018.
  */
-
 
 #include <cassert>
 #include <cstdlib> // for size_t
 
-template<typename Data>
-void myswap(Data& a, Data& b) {
-	Data tmp= a;
+template<typename T>
+void myswap(T& a, T& b) {
+	T tmp= a;
 	a= b;
 	b= tmp;
 }
@@ -53,8 +54,9 @@ public:
 	// Rule of three (in C++11 it will be rule of 5)
 	//---------------------------------------------------------
 	Buffer(const Buffer& other) :
-		_buf(new T[other.size()]),
+		_buf(getMemory(other.size())),
 		_size(other.size())	{
+		
 		copyVals(other);
 
 	}
@@ -93,8 +95,8 @@ public:
 	//---------------------------------------------------------
 	// Iterators related (not safe - for safe we need inner classes instead of typedefs)
 	//---------------------------------------------------------
-	typedef T* iterator; 
-	typedef const T* const_iterator;
+	using iterator = T*; 
+	using const_iterator = const T*;
 
 	iterator begin() {
 		return _buf;
@@ -109,17 +111,23 @@ public:
 	const_iterator cend() const {
 		return _buf+_size;
 	}
-	//---------------------------------------------------------
+
+	const_iterator begin() const {
+		return _buf;
+	}
+	const_iterator end() const {
+		return _buf+_size;
+	}	//---------------------------------------------------------
 
 
 
 	//---------------------------------------------------------
 	// efficiently swapping 
 	//---------------------------------------------------------
-	void efficient_swap(Buffer& other) {
+	void myswap(Buffer& other) {
 		::myswap(_buf, other._buf);
 		::myswap(_size, other._size);
-	} 
+	}
 	
 };
 
@@ -128,7 +136,7 @@ public:
 template<typename T>
 void myswap(Buffer<T>& b1, Buffer<T>& b2) {
 	std::cout << "Special swap" << std::endl;
-	b1.efficient_swap(b2);
+	b1.myswap(b2);
 }
 //---------------------------------------------------------
 

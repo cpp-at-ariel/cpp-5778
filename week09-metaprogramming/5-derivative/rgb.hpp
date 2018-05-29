@@ -27,15 +27,16 @@ struct Picture {
 
 	void plotYAxis() {/* matala */}
 
-	template<typename Function> void plot(
+	template<typename Function> 
+	void plot(
 		Function f, // Must have operator() (double)
 		double fromX, double toX, int stepsX, 
-		double fromY, double toY, 
+		double fromY, double toY,
 		RGB color) {
 
 		double stepX = (toX - fromX)/stepsX;
 		for (double x=fromX; x<=toX; x+=stepX) {
-			double y = f(x);
+			double y = f(x);  ///
 			int col = (x-fromX)/(toX-fromX)*dimx;
 			int row = (y-fromY)/(toY-fromY)*dimy;
 			if (col>=0 && col<dimx && row>=0 && row<dimy)

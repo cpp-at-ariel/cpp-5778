@@ -82,12 +82,18 @@ std::ostream& operator<<(std::ostream& os, const vector<T>& v)
  */
 class vector_bool_proxy
 {
+  private:
+    unsigned char& byte;
+    unsigned char  mask;
+    
   public:
     vector_bool_proxy(unsigned char& byte, int p): 
       byte(byte), 
       mask(1 << p) {}
 
-    operator bool() const { return byte & mask; }
+    operator bool() const { 
+      return byte & mask; 
+    }
 
     vector_bool_proxy& operator=(bool b) 
     { 
@@ -98,18 +104,19 @@ class vector_bool_proxy
         return *this; 
     }
 
-  private:
-    unsigned char& byte;
-    unsigned char  mask;
 };
 
 template <>
 class vector<bool> 
 {
+  private:
+    int   my_size;
+    unsigned char* data;
   public:
     explicit vector(int size)
-      : my_size(size), 
-      data(new unsigned char[(my_size+7) / 8])
+      : my_size(size),
+      data(new unsigned char
+        [(my_size+7) / 8])
     {}
 
     vector() : my_size(0) {}
@@ -126,9 +133,6 @@ class vector<bool>
     // You must define it, with all other methods,
     // in each specialization!
 
-  private:
-    int                              my_size;
-    std::unique_ptr<unsigned char[]> data;
 };
 
 
@@ -136,7 +140,6 @@ class vector<bool>
 
 
 int main() {
-#if 1
     vector<float> v( 4 );
     v[0]= v[1]= 1.0; v[2]= 2.0; v[3] = -3.0;
 
@@ -149,7 +152,7 @@ int main() {
     std::cout << "w + v = " << sum << std::endl;
 
     vector<float> z( v );
-#endif
+
 
     vector<bool>  b(13);
     for (int i= 0; i < 13; i++)

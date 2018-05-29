@@ -94,6 +94,10 @@ public:
 			return m_pointer->m_value;
 		}
 
+		T* operator->() const {
+			return &m_pointer->m_value;
+		}
+
 		// ++i;
 		iterator& operator++() {
 			m_pointer= m_pointer->m_next;
@@ -124,6 +128,7 @@ public:
 	iterator end() {
 		return iterator{nullptr};
 	}
+
 	//-------------------------------------------------------------------
 
 /*

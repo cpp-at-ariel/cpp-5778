@@ -27,6 +27,7 @@ int main() {
 		Stk<string>::iterator it= strStk.begin(); 
 		it!=strStk.end(); 
 		++it) {
+		cout << it->size() << " ";
 		cout << *it;
 	}
 	// C++-11 style
