@@ -17,11 +17,6 @@ auto operator+(mks<m,k,s> a, mks<m,k,s> b) {
 	return mks<m,k,s>(a.val+b.val);
 }
 
-template <int m, int k, int s> 
-ostream& operator<<(ostream& out, mks<m,k,s> a) {
-	return (out << a.val);
-}
-
 template <int ma, int ka, int sa, int mb, int kb, int sb> 
 auto operator*(mks<ma,ka,sa> a, mks<mb,kb,sb> b) {
 	return mks<ma+mb,ka+kb,sa+sb>(a.val*b.val);
@@ -32,15 +27,32 @@ auto operator/(mks<ma,ka,sa> a, mks<mb,kb,sb> b) {
 	return mks<ma-mb,ka-kb,sa-sb>(a.val/b.val);
 }
 
-using Length=mks<1,0,0>;
-using Time=mks<0,0,1>;
-using Velocity=mks<1,0,-1>;
+template <int m, int k, int s> 
+ostream& operator<<(ostream& out, mks<m,k,s> a) {
+	return (out << a.val);
+}
+
+using Length=mks<1,0,0>;  // meter
+using Time=mks<0,0,1>;    // second
+using Mass=mks<0,1,0>;    // kilogram
+using Velocity=mks<1,0,-1>;  // meter*(second)^(-1)
+using Acceleration=mks<1,0,-2>;  // meter*(second)^(-2)
+using Energy=mks<2,1,-2>;  // kg^2*meter*(second)^(-2)
 
 int main() {
+/*
+	double time=5;   // seconds
+	double distance = 7;  // meters
+	//
+	cout << time+distance;   // logic error
+*/	
 	Length length = 15; // 15 meters
 	cout << "length = " << length << endl;
 	Time time   = 3;  // 3 seconds
+	mks<0,0,2> time2 = 5;
+	//cout << time+time2;
 	cout << "time = " << time << endl;
+	//length+time;
 	auto velocity = length/time;
 	cout << "velocity = " << velocity << endl;
 	Velocity velocity2 = 4;
@@ -48,4 +60,11 @@ int main() {
 	auto velocity_sum = velocity+velocity2;
 	cout << "velocity_sum = " << velocity_sum << endl;
 	//auto v_plus_l = velocity+length; // won't compile
+
+	Velocity c = 3e8;  // speed of light (m/s)
+	Mass m = 5; // 5 kg uranium
+	auto mc = m*c; 
+	auto mc2 = m*c*c; 
+	Energy E(0);
+	E = mc2;
 }
