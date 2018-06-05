@@ -32,39 +32,50 @@ ostream& operator<<(ostream& out, mks<m,k,s> a) {
 	return (out << a.val);
 }
 
-using Length=mks<1,0,0>;  // meter
-using Time=mks<0,0,1>;    // second
-using Mass=mks<0,1,0>;    // kilogram
+using Meters=mks<1,0,0>;  // meter
+using Seconds=mks<0,0,1>;    // second
+using Kilograms=mks<0,1,0>;    // kilogram
 using Velocity=mks<1,0,-1>;  // meter*(second)^(-1)
 using Acceleration=mks<1,0,-2>;  // meter*(second)^(-2)
 using Energy=mks<2,1,-2>;  // kg^2*meter*(second)^(-2)
 
+mks<0,0,1> operator"" _sec(long double x) { return mks<0,0,1>(x); }
+mks<0,0,1> operator"" _min(long double x) { return mks<0,0,1>(x*60); }
+mks<0,0,1> operator"" _hour(long double x) { return mks<0,0,1>(x*3600); }
+
 int main() {
-/*
-	double time=5;   // seconds
-	double distance = 7;  // meters
+	//double time=5;   // seconds
+	//double distance = 7;  // meters
 	//
-	cout << time+distance;   // logic error
-*/	
-	Length length = 15; // 15 meters
+	//cout << time+distance;   // logic error
+
+	Meters length = 15; // 15 meters
 	cout << "length = " << length << endl;
-	Time time   = 3;  // 3 seconds
-	mks<0,0,2> time2 = 5;
-	//cout << time+time2;
+	Seconds time   = 3;  // 3 seconds
 	cout << "time = " << time << endl;
 	//length+time;
+
+	Seconds time1 = 1.0_hour + 2.0_min + 50.0_sec;
+	cout << "time1 = " << time1 << endl;
+
+	//mks<0,0,2> time2 = 5;
+	//cout << time+time2;
+
 	auto velocity = length/time;
 	cout << "velocity = " << velocity << endl;
+
 	Velocity velocity2 = 4;
 	cout << "velocity2 = " << velocity2 << endl;
+	
 	auto velocity_sum = velocity+velocity2;
 	cout << "velocity_sum = " << velocity_sum << endl;
 	//auto v_plus_l = velocity+length; // won't compile
 
 	Velocity c = 3e8;  // speed of light (m/s)
-	Mass m = 5; // 5 kg uranium
+	Kilograms m = 5; // 5 kg uranium
 	auto mc = m*c; 
 	auto mc2 = m*c*c; 
 	Energy E(0);
-	E = mc2;
+	E = m*c*c;
+	cout << "energy = " << E << endl;
 }

@@ -21,10 +21,10 @@ struct ZugiIzugi {
 };
 
 int main() {
-	set<int> s1;
+	//set<int> s1;
 	//set<int, less<int> > s1;  // default
 	//set<int,SederYored> s1;
-	//set<int,greater<int>> s1;
+	set<int,greater<int>> s1;
 	//set<int,ZugiIzugi> s1 {1,2,4,6};
 	s1.emplace(5);
 	s1.emplace(7);
