@@ -3,6 +3,6 @@
 using namespace std;
 
 int main() {
-	srand(time(0));
+	srand(clock());
 	cout << rand() << endl;
 }

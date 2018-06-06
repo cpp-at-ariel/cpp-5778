@@ -8,7 +8,7 @@ struct SederYored {
 		return x>y;
 	}
 };
-
+	
 struct ZugiIzugi {
 	bool operator()(int x, int y) {
 		if ( (x%2 == y%2) )

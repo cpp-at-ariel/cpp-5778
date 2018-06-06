@@ -1,13 +1,12 @@
 #include <cassert>
 #include <iostream>
+#include <iterator>
 #include <set>
 #include <map>
 using namespace std;
 
 int main() {
 	cout << boolalpha;
-
-	set<int> s1 = {1,7,3,5};
 	auto i4 = s1.find(99);
 
 	cout << (i4 == s1.end()) << endl; // true
@@ -21,4 +20,9 @@ int main() {
 
 	cout << (*s1.lower_bound(5)) << endl;  // 5
 	cout << (*s1.upper_bound(5)) << endl;  // 7
+
+	multimap<int,int> mymap {{1,11}, {2,22}, {3,33}, {3,34}, {3,35} ,{4,44}};
+	for (auto it = mymap.lower_bound(3); it != mymap.upper_bound(3); ++it) {
+		cout << "key=" << it->first << " value=" << it->second << endl;
+	}
 }

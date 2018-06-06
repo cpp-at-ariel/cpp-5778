@@ -105,16 +105,19 @@ public:
 		return _buf+_size;
 	}
 
+/*
 	const_iterator cbegin() const {
 		return _buf;
 	}
 	const_iterator cend() const {
 		return _buf+_size;
 	}
+*/
 
 	const_iterator begin() const {
 		return _buf;
 	}
+
 	const_iterator end() const {
 		return _buf+_size;
 	}	//---------------------------------------------------------

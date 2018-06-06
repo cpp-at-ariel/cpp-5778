@@ -1,6 +1,7 @@
 #include "Buffer.hpp"
 #include "gtest/gtest.h"
 
+/*
 static int val(int i) {
 	return i*3;
 }
@@ -143,10 +144,10 @@ TEST(Buffer, constIteratorTest) {
 	}
 }
 
-
+*/
 
 TEST(Buffer, iteratorTest) {
-
+/*
 	Buffer<int> ib(2);
 	ib[0]= 1;
 	ib[1]= 2;
@@ -191,9 +192,16 @@ TEST(Buffer, iteratorTest) {
 		EXPECT_EQ(str, expected_str);
 	}
 
-
+*/
 	const Buffer<int> b99(99);
-	for (const int& val: b99)
-		std::cout << val;
+	for (const int& val: b99) {
+		std::cout << val << " " ;
+	}
+//	for (int& val: b99) {
+//		val = 5;
+//	}
+	for (const int& val: b99) {
+		std::cout << val << " " ;
+	}
 }
 
