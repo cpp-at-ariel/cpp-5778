@@ -32,10 +32,10 @@ int myround(double x) {
 struct MyStruct {
 	int num;
 	MyStruct(int num): num(num) {}
-	bool operator==(const MyStruct& other) {
+	bool operator==(const MyStruct& other) const {
 		return false; // a deliberate bug
 	}
-	bool operator!=(const MyStruct& other) {
+	bool operator!=(const MyStruct& other) const {
 		return num!=other.num; // no bug 
 	}
 	int myNum() const { 
