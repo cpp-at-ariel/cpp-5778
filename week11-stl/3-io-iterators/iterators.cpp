@@ -5,19 +5,40 @@
 #include <vector>
 #include <numeric>
 using namespace std;
- 
+
+/*
+template<typename Iterator> Iterator& operator+=(Iterator& it, int howmuch) {
+	for (int i=0; i<howmuch; ++i)
+		++it;
+	return it;
+}
+*/
+
 int main()
 {
 
 	set<int> s1 = {1,7,3,5};
-	copy(s1.begin(), s1.end(), ostream_iterator<int>(cout,";"));
+	vector<int> v11(4);
+	auto it_v11 = v11.begin();
+	it_v11+=2;
+
+	copy(s1.begin(), s1.end(), v11.begin());
+	auto it_s1 = s1.begin();
+	it_s1++;
+	//it_s1+=2;
+	copy(it_s1, s1.end(), ostream_iterator<int>(cout,";"));
 	cout << endl;
+
 	auto it=s1.begin();
+
+	//copy(s1.begin(), ++++++it, v1.begin());
+
 	vector<int> v1(4);
-	copy(s1.begin(), ++++++it, v1.begin());
-//	copy(istream_iterator<int>(cin), istream_iterator<int>{} , v1.begin());
+	copy(istream_iterator<int>(cin), istream_iterator<int>{} , v1.begin());
+
 	copy(v1.begin(), v1.end(), ostream_iterator<int>(cout,","));
 	cout << endl;
+	
 	
     // istringstream str("0.12 0.2 0.3 0.4");
 	// istream_iterator<float> b(str);

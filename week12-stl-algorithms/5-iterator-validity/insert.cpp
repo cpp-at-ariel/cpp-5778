@@ -20,7 +20,7 @@ int main() {
 		cout << "*it=" << *it << endl;
 		cout << v << endl;
 
-		int capacity_before = v.capacity();
+		//int capacity_before = v.capacity();
 		v.emplace_back(99);
 		v.emplace_back(99);
 		v.emplace_back(99);
@@ -28,7 +28,7 @@ int main() {
 		v.emplace_back(99);
 		v.emplace_back(99);
 		v.emplace_back(99);
-		int capacity_after = v.capacity();
+		//int capacity_after = v.capacity();
 		cout << v << endl;
 		v.insert(it,55);
 		cout << v << endl;
