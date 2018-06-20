@@ -142,7 +142,7 @@ public:
     friend const Complex operator* (const Complex& c1, const Complex& c2);
     friend bool operator==(const Complex& c1, const Complex& c2);
     friend bool operator!=(const Complex& c1, const Complex& c2);
-};
+}; // end of class Complex
 
 //----------------------------------------
 // friend global IO operators
